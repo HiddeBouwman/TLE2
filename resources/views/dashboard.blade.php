@@ -1,17 +1,23 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+    <div class="flex justify-center">
+        <div class="bg-pink-600 w-1/2 mt-10 rounded ">
+            <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl">
+                {{ __('klik voor de feit van de dag!') }}
+            </h1>
         </div>
     </div>
+    <div class="flex justify-center">
+        <div class="bg-green-900 mt-8  w-4/5  text-4xl">
+            <h1 class=" text-white text-center pt-2">De vliegenzwam</h1>
+            <p class=" text-white  text-center p-8 text-2xl ">
+                De Vliegenzwam is een paddenstoel wat een symbiotische relatie heeft met bomen, de Vliegzwam helpt met
+                meer
+                mineralen naar de boom te transporteren, waar de paddenstoel krijgt daarvoor suikers van de boom.
+            </p>
+        </div>
+    </div>
+    <img src="" alt="">
+
+
 </x-app-layout>
