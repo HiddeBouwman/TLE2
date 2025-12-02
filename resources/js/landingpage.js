@@ -14,17 +14,17 @@ function init() {
 }
 
 function hideFact(facts, image) {
-    facts.classList.add('hidden')
-    image.classList.remove('hidden')
+    facts.classList.add("hidden")
+    image.classList.remove("hidden")
 }
 
 function hideImage(facts, image) {
-    image.classList.add('hidden')
-    facts.classList.remove('hidden')
+    image.classList.add("hidden")
+    facts.classList.remove("hidden")
 }
 
 function swap(facts, image) {
-    if (facts.classList.contains('hidden')) {
+    if (facts.classList.contains("hidden")) {
         hideImage(facts, image)
     } else {
         hideFact(facts, image)

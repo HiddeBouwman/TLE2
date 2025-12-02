@@ -25,7 +25,7 @@
             </p>
         </div>
     </div>
-    <div id="fact-image">
+    <div id="fact-image" class="hidden">
         <img src="" alt="">
         <p> this is a test image LMAO</p>
     </div>
