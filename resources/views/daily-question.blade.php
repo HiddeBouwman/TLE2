@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="w-full flex justify-center py-10">
-        <div class="max-w-7xl bg-background p-10">
-            <h1 class="text-gray-600 text-4xl font-black mb-6">Dagelijkse Uitdaging</h1>
+        <div class="max-w-full md:max-w-7xl bg-background md:p-10">
+            <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left">Dagelijkse Uitdaging</h1>
 
-            <div class="relative text-white p-6 px-0">
-                <div>
-                    <div class="bg-gradient-lap rounded-md shadow-md w-full h-5/6">
+            <div class="relative flex justify-center text-white p-6 px-0">
+                <div class="w-11/12 md:w-full">
+                    <div class="bg-gradient-lap rounded-md shadow-md w-9/10">
                         <h2 class="sr-only">Inleiding</h2>
-                        <p class="w-1/2 p-6 text-lg">
+                        <p class="w-full lg:w-1/2 p-6 text-lg">
                             In een <strong>dystopische toekomst</strong> zou het verdwijnen van de vliegenzwam laten
                             zien
                             hoe
@@ -16,7 +16,7 @@
                             minder bijzonder en minder leefbaar maakt.
                         </p>
                     </div>
-                    <div class="absolute right-0 top-0 w-1/2 h-full overflow-hidden rounded-md shadow-md">
+                    <div class="w-full lg:absolute lg:right-0 lg:top-0 lg:w-1/2 md:h-full lg:h-full overflow-hidden rounded-md shadow-md">
                         <img src="{{ Vite::asset('resources/img/dystopie.png') }}"
                              alt="Een afbeelding van een bos met paddenstoelen, symboliserend de natuur die instort in een dystopische toekomst."
                              class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
@@ -24,8 +24,8 @@
                 </div>
             </div>
 
-            <section class="p-6 mt-4 bg-white shadow">
-                <h2 class="inline-block text-3xl font-bold pb-3">
+            <section class="p-2 lg:p-6 mt-4 bg-white shadow">
+                <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left">
                     Nu aan jou de vraag…
                 </h2>
 
