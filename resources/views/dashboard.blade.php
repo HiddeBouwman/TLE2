@@ -35,33 +35,37 @@
 
             </div>
         </section>
-        <div class="flex justify-center lg:justify-start">
-            <a id="button" href="{{ route('daily-question') }}"
-               class=" hidden bg-primary text-white text-xl py-3 px-12 lg:ml-40 mt-20 inline-block hover:primary-hover transition duration-300">
-                Naar vraag
-            </a>
-        </div>
-        <section id="text">
-            <div class="flex justify-center lg:justify-start">
-                <div class="lg:w-30 bg-gradient-lap mx-4 text-2xl lg:text-xl lg:ml-40 mt-10 shadow-lg p-5">
-                    <ul class="list-disc list-inside text-white">
-                        <li>
-                            lees het weetje!
-                        </li>
-                        <li>
-                            doe de opdracht!
-                        </li>
-                        <li>
-                            behoud de streak!
-                        </li>
-                        <li>
-                            behaal prijzen!
-                        </li>
-                    </ul>
 
-
-                </div>
+        <div class="flex flex-row">
+            <div class="flex flex-col justify-center lg:justify-start">
+                <a id="button" href="{{ route('daily-question') }}"
+                   class=" hidden bg-primary text-white text-xl py-3 px-12 lg:ml-40 mt-20 inline-block hover:primary-hover transition duration-300">
+                    Naar vraag
+                </a>
             </div>
-        </section>
+            <section id="text">
+                <div class="flex justify-center lg:justify-start">
+                    <div class="lg:w-30 bg-gradient-lap mx-4 text-2xl lg:text-xl lg:ml-40 mt-10 shadow-lg p-5">
+                        <ul class="list-disc list-inside text-white">
+                            <li>
+                                lees het weetje!
+                            </li>
+                            <li>
+                                doe de opdracht!
+                            </li>
+                            <li>
+                                behoud de streak!
+                            </li>
+                            <li>
+                                behaal prijzen!
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </section>
+            
+        </div>
     </x-slot>
 </x-app-layout>
