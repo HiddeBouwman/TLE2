@@ -42,7 +42,7 @@
             </a>
         </div>
         <section id="text">
-            <div class="flex justify-start">
+            <div class="flex justify-center lg:justify-start">
                 <div class="lg:w-30 bg-gradient-lap mx-4 text-2xl lg:text-xl lg:ml-40 mt-10 shadow-lg p-5">
                     <ul class="list-disc list-inside text-white">
                         <li>
