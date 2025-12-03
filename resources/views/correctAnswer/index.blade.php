@@ -20,7 +20,7 @@
                     Biologische producten worden niet bespoten met pesticiden of andere schadelijke stoffen. Naast dat
                     het
                     beter is voor de natuur, is het ook beter en veiliger voor jezelf</p>
-                <a href=""
+                <a href="{{ route('streakoverzicht') }}"
                    class="w-60 text-center bg-[--color-primary] text-white hover:shadow-lg hover:scale-105 transition-all duration-200 font-semibold">
                     Naar overzicht</a>
             </div>
