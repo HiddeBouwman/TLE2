@@ -7,7 +7,7 @@ use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('correctAnswer', [CorrectAnswerController::class, 'index'])->name('correctAnswer');
