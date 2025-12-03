@@ -12,7 +12,7 @@ class CorrectAnswerController extends Controller
      */
     public function index()
     {
-        //
+        return view('correctAnswer.index');
     }
 
     /**

@@ -10,7 +10,6 @@ Route::get('/', function () {
 });
 
 Route::get('correctAnswer', [CorrectAnswerController::class, 'index'])->name('correctAnswer');
-
 Route::get('wrongAnswer', [WrongAnswerController::class, 'index'])->name('wrongAnswer');
 
 
