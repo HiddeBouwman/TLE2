@@ -9,7 +9,6 @@ function init() {
     let text = document.getElementById('text')
 
     info.addEventListener("click", () => swapHidden(facts, image, button, text))
-
     facts.addEventListener("click", () => hideFact(facts, image, button, text))
     image.addEventListener("click", () => hideImage(facts, image, button, text))
 

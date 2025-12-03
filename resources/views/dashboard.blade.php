@@ -8,8 +8,8 @@
          voor screenreader de fact automatisch laten zien.
          --}}
 
-        <section id="info" class="flex justify-center">
-            <div class=" bg-primary w-1/2 mt-10 rounded ">
+        <section id="info" class="flex justify-center ">
+            <div class=" bg-primary lg:w-1/2 mt-10 rounded ">
                 <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl">
                     {{ __('klik voor de feit van de dag!') }}
                 </h1>
@@ -40,14 +40,15 @@
 
             </div>
         </section>
-
-        <a id="button" href="{{ route('daily-question') }}"
-           class=" hidden bg-primary text-white text-xl py-3 px-12 ml-40 mt-20 inline-block hover:primary-hover transition duration-300">
-            Naar vraag
-        </a>
+        <div class="flex justify-center lg:justify-start">
+            <a id="button" href="{{ route('daily-question') }}"
+               class=" hidden bg-primary text-white text-xl py-3 px-12 lg:ml-40 mt-20 inline-block hover:primary-hover transition duration-300">
+                Naar vraag
+            </a>
+        </div>
         <section id="text">
             <div class="flex justify-start">
-                <div class="w-2/5 ml-40 mt-10 shadow-lg ">
+                <div class="lg:w-2/5 mx-4 text-2xl lg:text-xl lg:ml-40 mt-10 shadow-lg p-2">
                     <p>Welkom bij jouw dagelijkse groene uitdaging! Ontdek elke dag een nieuwe plant of diersoort, samen
                         met
                         verrassende weetjes over onze natuur. Beantwoord de vraag die erbij hoort en laat je leiden naar
