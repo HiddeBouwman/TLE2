@@ -30,4 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/streakoverzicht', function () {
+    return view('streakOverview');
+});
+
+require __DIR__.'/auth.php';
 require __DIR__ . '/auth.php';
