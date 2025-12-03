@@ -44,8 +44,8 @@
                         </ol>
                     </div>
 
-                    <div class="bg-gradient-to-b from-emerald-500 to-emerald-700 text-white rounded-xl p-6 shadow-lg">
-                        <div class="rounded-lg border-2 border-emerald-600 p-6">
+                    <div class="bg-gradient-lap text-white rounded-xl p-6 shadow-lg">
+                        <div class="p-6">
                             <h3 class="text-lg font-semibold mb-4">Je zit op een reeks van <span class="font-bold">16 dagen</span>,
                                 tijd voor een volgende stap!</h3>
 
@@ -69,9 +69,9 @@
                             </div>
                         </div>
 
-                        <div class="mt-6 text-center">
+                        <div class=" mt-6 text-center">
                             <a href="https://www.natuurmonumenten.nl/word-lid"
-                               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-12 py-4 rounded-full shadow-lg">
+                               class="inline-block btn-primary  font-semibold px-12 py-4 rounded-full shadow-lg">
                                 Lid worden
                             </a>
                         </div>
@@ -82,26 +82,26 @@
                 <!-- Right column (left, spans 2) -->
                 <aside class="mt-8 md:mt-0">
                     <div class="relative">
-                        <div class="bg-pink-600 text-white font-bold text-2xl text-center py-6 rounded-t-lg shadow-md">
+                        <div class="bg-primary text-white font-bold text-2xl text-center py-6 rounded-t-lg shadow-md">
                             <h2>Beloningen!!!</h2>
                         </div>
 
                         <div
-                            class="bg-gradient-to-b from-emerald-400 to-emerald-800 text-white rounded-b-lg p-6 shadow-lg -mt-2">
+                            class="bg-gradient-lap  text-white rounded-b-lg p-6 shadow-lg -mt-2">
                             <div class="grid grid-cols-1 gap-3 text-sm mb-4 leading-relaxed">
-                                <p>3-Token om de streak een dag te missen</p>
-                                <p>7-Je naam komt op de website van natuurmonumenten</p>
-                                <p>15-Ontvang een digitaal wandelboekje</p>
-                                <p>18-Je kan gratis parkeren bij een natuurgebied</p>
-                                <p>25-Ontvang een beloning van bezoekerscentra</p>
-                                <p>30-Er wordt een boom in jouw naam geplant door natuurmonumenten</p>
+                                <p>3-Token om de streak een dag te missen.</p>
+                                <p>7-Je naam komt op de website van natuurmonumenten.</p>
+                                <p>15-Ontvang een digitaal wandelboekje.</p>
+                                <p>18-Je kan gratis parkeren bij een natuurgebied.</p>
+                                <p>25-Ontvang een beloning van bezoekerscentra.</p>
+                                <p>30-Er wordt een boom in jouw naam geplant door natuurmonumenten.</p>
                             </div>
 
                             <ul class="space-y-4 mt-4">
                                 <li class="flex items-center gap-4">
                                     <img src="{{ Vite::asset('resources/images/gift.png') }}"
                                          alt="op deze afbeelding is een cadeau te zien"
-                                         class="block h-9 w-auto p-1 bg-green-700 rounded-md text-gray-400">
+                                         class="block h-9 w-auto p-1 bg-emerald-500 rounded-md text-gray-400">
                                     <div class="flex-1">
                                         <div class="font-semibold text-lg">Dag 3</div>
                                     </div>
@@ -115,7 +115,7 @@
                                 <li class="flex items-center gap-4">
                                     <img src="{{ Vite::asset('resources/images/gift.png') }}"
                                          alt="op deze afbeelding is een cadeau te zien"
-                                         class="block h-9 w-auto p-1 bg-green-700 rounded-md text-gray-400">
+                                         class="block h-9 w-auto p-1 bg-emerald-500 rounded-md text-gray-400">
                                     <div class="flex-1">
                                         <div class="font-semibold text-lg">Dag 7</div>
                                     </div>
@@ -129,12 +129,12 @@
                                 <li class="flex items-center gap-4">
                                     <img src="{{ Vite::asset('resources/images/gift.png') }}"
                                          alt="op deze afbeelding is een cadeau te zien"
-                                         class="block h-9 w-auto p-1 bg-orange-500 rounded-md text-gray-400">
+                                         class="block h-9 w-auto p-1 bg-gift-orange rounded-md text-gray-400">
                                     <div class="flex-1">
                                         <div class="font-semibold text-lg">Dag 15</div>
                                     </div>
                                     <button
-                                        class="bg-orange-500 text-white px-4 py-1 rounded-full font-semibold flex items-center gap-2 hover:bg-orange-600">
+                                        class="bg-gift-orange text-white px-4 py-1 rounded-full font-semibold flex items-center gap-2 hover:bg-orange-600">
                                         Claim
                                         <span class="text-sm">→</span>
                                     </button>
@@ -143,11 +143,11 @@
                                 <li class="flex items-center gap-4 opacity-90">
                                     <img src="{{ Vite::asset('resources/images/gift.png') }}"
                                          alt="op deze afbeelding is een cadeau te zien"
-                                         class="block h-9 w-auto p-1 bg-red-700 rounded-md text-gray-400">
+                                         class="block h-9 w-auto p-1 bg-gift-red rounded-md text-gray-400">
                                     <div class="flex-1">
                                         <div class="font-semibold text-lg">Dag 18</div>
                                     </div>
-                                    <div class="bg-red-700 text-white px-4 py-1 rounded-full flex items-center gap-2">
+                                    <div class="bg-gift-red text-white px-4 py-1 rounded-full flex items-center gap-2">
                                         Nog te behalen
                                         <span class="text-sm">✗</span>
                                     </div>
@@ -156,11 +156,11 @@
                                 <li class="flex items-center gap-4 opacity-90">
                                     <img src="{{ Vite::asset('resources/images/gift.png') }}"
                                          alt="op deze afbeelding is een cadeau te zien"
-                                         class="block h-9 w-auto p-1 bg-red-700 rounded-md text-gray-400">
+                                         class="block h-9 w-auto p-1 bg-gift-red rounded-md text-gray-400">
                                     <div class="flex-1">
                                         <div class="font-semibold text-lg">Dag 25</div>
                                     </div>
-                                    <div class="bg-red-700 text-white px-4 py-1 rounded-full flex items-center gap-2">
+                                    <div class="bg-gift-red text-white px-4 py-1 rounded-full flex items-center gap-2">
                                         Nog te behalen
                                         <span class="text-sm">✗</span>
                                     </div>
@@ -169,11 +169,11 @@
                                 <li class="flex items-center gap-4 opacity-90">
                                     <img src="{{ Vite::asset('resources/images/gift.png') }}"
                                          alt="op deze afbeelding is een cadeau te zien"
-                                         class="block h-9 w-auto p-1 bg-red-700 rounded-md text-gray-400">
+                                         class="block h-9 w-auto p-1 bg-gift-red rounded-md text-gray-400">
                                     <div class="flex-1">
                                         <div class="font-semibold text-lg">Dag 30</div>
                                     </div>
-                                    <div class="bg-red-700 text-white px-4 py-1 rounded-full flex items-center gap-2">
+                                    <div class="bg-gift-red text-white px-4 py-1 rounded-full flex items-center gap-2">
                                         Nog te behalen
                                         <span class="text-sm">✗</span>
                                     </div>
