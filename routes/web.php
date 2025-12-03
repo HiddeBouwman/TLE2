@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/streakoverzicht', function () {
     return view('streakOverview');
-});
+})->name('streakoverzicht');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 require __DIR__ . '/auth.php';
