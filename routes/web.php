@@ -7,7 +7,7 @@ use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('correctAnswer', [CorrectAnswerController::class, 'index'])->name('correctAnswer');
@@ -16,11 +16,11 @@ Route::get('wrongAnswer', [WrongAnswerController::class, 'index'])->name('wrongA
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
-Route::get('/daily-question', [QuestionController::class, 'show'])->middleware(['auth', 'verified'])->name('daily-question');
+Route::get('/daily-question', [QuestionController::class, 'show'])->name('daily-question');
 
-Route::post('/daily-question', [QuestionController::class, 'submit'])->middleware(['auth', 'verified'])->name('daily-question.submit');
+Route::post('/daily-question', [QuestionController::class, 'submit'])->name('daily-question.submit');
 
 
 Route::middleware('auth')->group(function () {
@@ -33,5 +33,5 @@ Route::get('/streakoverzicht', function () {
     return view('streakOverview');
 })->name('streakoverzicht');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 require __DIR__ . '/auth.php';
