@@ -3,8 +3,6 @@
     <x-slot>
         {{--
          to do:
-         image toevoegen
-         klikken draait de afbeelding om.
          voor screenreader de fact automatisch laten zien.
          --}}
 
@@ -21,11 +19,8 @@
                     <h2 class=" text-white text-center pt-2">De vliegenzwam</h2>
                     <p class=" text-white  text-center p-8 text-2xl ">
                         De Vliegenzwam is een paddenstoel wat een symbiotische relatie heeft met bomen, de Vliegzwam
-                        helpt
-                        met
-                        meer
-                        mineralen naar de boom te transporteren, waar de paddenstoel krijgt daarvoor suikers van de
-                        boom.
+                        helpt met meer mineralen naar de boom te transporteren, waar de paddenstoel krijgt daarvoor
+                        suikers van de boom.
                     </p>
                 </div>
             </div>
@@ -48,18 +43,23 @@
         </div>
         <section id="text">
             <div class="flex justify-start">
-                <div class="lg:w-2/5 mx-4 text-2xl lg:text-xl lg:ml-40 mt-10 shadow-lg p-2">
-                    <p>Welkom bij jouw dagelijkse groene uitdaging! Ontdek elke dag een nieuwe plant of diersoort, samen
-                        met
-                        verrassende weetjes over onze natuur. Beantwoord de vraag die erbij hoort en laat je leiden naar
-                        een
-                        unieke
-                        groene opdracht die past bij jouw keuze. Door deze eco-taak uit te voeren, zet je actief stappen
-                        richting
-                        een duurzamere wereld én behoud je jouw streak.
-                        Houd je 30 dagen vol? Dan planten we een boom op jouw naam — jouw persoonlijke bijdrage aan een
-                        groenere
-                        planeet. 🌱🌍</p>
+                <div class="lg:w-30 bg-gradient-lap mx-4 text-2xl lg:text-xl lg:ml-40 mt-10 shadow-lg p-5">
+                    <ul class="list-disc list-inside text-white">
+                        <li>
+                            lees het weetje!
+                        </li>
+                        <li>
+                            doe de opdracht!
+                        </li>
+                        <li>
+                            behoud de streak!
+                        </li>
+                        <li>
+                            behaal prijzen!
+                        </li>
+                    </ul>
+
+
                 </div>
             </div>
         </section>
