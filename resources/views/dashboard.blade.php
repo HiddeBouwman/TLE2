@@ -34,18 +34,33 @@
         <section id="fact-image" class=" flex justify-center">
             <div class="bg-accent mt-8  lg:h-60 w-4/5 md:h-80  h-full object-cover">
 
-                <img class="object-cover opacity-85 w-full h-full"
+                <img class="object-cover  w-full h-full"
                      src="{{ Vite::asset('resources/images/vliegenzwam.webp') }}"
                      alt="Foto van de vliegenzwam">
 
             </div>
         </section>
 
-        <a href="{{ route('daily-question') }}"
-           class=" bg-primary text-white text-xl py-3 px-12 ml-40 mt-20 inline-block hover:primary-hover transition duration-300">
-
+        <a id="button" href="{{ route('daily-question') }}"
+           class=" hidden bg-primary text-white text-xl py-3 px-12 ml-40 mt-20 inline-block hover:primary-hover transition duration-300">
             Naar vraag
-
         </a>
+        <section id="text">
+            <div class="flex justify-start">
+                <div class="w-2/5 ml-40 mt-10 shadow-lg ">
+                    <p>Welkom bij jouw dagelijkse groene uitdaging! Ontdek elke dag een nieuwe plant of diersoort, samen
+                        met
+                        verrassende weetjes over onze natuur. Beantwoord de vraag die erbij hoort en laat je leiden naar
+                        een
+                        unieke
+                        groene opdracht die past bij jouw keuze. Door deze eco-taak uit te voeren, zet je actief stappen
+                        richting
+                        een duurzamere wereld én behoud je jouw streak.
+                        Houd je 30 dagen vol? Dan planten we een boom op jouw naam — jouw persoonlijke bijdrage aan een
+                        groenere
+                        planeet. 🌱🌍</p>
+                </div>
+            </div>
+        </section>
     </x-slot>
 </x-app-layout>
