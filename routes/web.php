@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CorrectAnswerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/daily-question', function () {
-    return view('daily-question');
-})->middleware(['auth', 'verified'])->name('daily-question');
+Route::get('/daily-question', [QuestionController::class, 'show'])->middleware(['auth', 'verified'])->name('daily-question');
+
+Route::post('/daily-question', [QuestionController::class, 'submit'])->middleware(['auth', 'verified'])->name('daily-question.submit');
 
 
 Route::middleware('auth')->group(function () {
@@ -28,4 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/streakoverzicht', function () {
+    return view('streakOverview');
+});
+
+require __DIR__.'/auth.php';
 require __DIR__ . '/auth.php';

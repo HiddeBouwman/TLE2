@@ -11,6 +11,37 @@
     --color-babyblue: #EBF9FD;
 
 
+    /* buttons */
+    /* primary button */ /* zet btn-primary neer voor de knop met al deze functies */
+    --button-primary-bg: #E2006A;
+    --button-primary-text: #FFF;
+    --button-primary-border: #E2006A;
+
+    --button-primary-hover-bg: #FCEDF4;
+    --button-primary-hover-text: #EB589D;
+    --button-primary-hover-border: #EB589D;
+    --button-primary-hover-bg-mobile: #8F1B54;
+    --button-primary-hover-text-mobile: #FFF;
+    --button-primary-hover-border-mobile: #8F1B54;
+
+    --button-primary-active-bg: #E2006A;
+    --button-primary-active-text: #FFF;
+    --button-primary-active-border: #E2006A;
+
+    --button-primary-inactive-bg: #B1A0A8;
+    --button-primary-inactive-text: #333;
+    --button-primary-inactive-border: #B1A0A8;
+
+    --button-primary-focus-bg: #8F1B54;
+    --button-primary-focus-text: #FFF;
+    --button-primary-focus-border: #8F1B54;
+    --button-primary-focus-outline: #E2006A;
+
+
+
+
+
+
     /* Spacing */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
