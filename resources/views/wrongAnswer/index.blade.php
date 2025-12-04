@@ -36,7 +36,7 @@
             <div class="lg:w-1/2">
                 <img
                     class="w-full h-full object-cover"
-                    src="{{ Vite::asset('resources/img/dystopie.png') }}"
+                    src="{{ Vite::asset('resources/images/dystopie.png') }}"
                     alt="somber toekomstbeeld zonder paddenstoelen">
             </div>
 
