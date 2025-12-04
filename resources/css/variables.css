@@ -39,6 +39,73 @@
     --button-primary-focus-outline: #E2006A;
 
 
+    /* secondary button */
+    --button-secondary-bg: #FFF;
+    --button-secondary-text: #E2006A;
+    --button-secondary-border: #E2006A;
+
+    --button-secondary-hover-bg: #FCEDF4;
+    --button-secondary-hover-text: #EB589D;
+    --button-secondary-hover-border: #EB589D;
+
+    --button-secondary-active-bg: #FCEDF4;
+    --button-secondary-active-text: #EB589D;
+    --button-secondary-active-border: #EB589D;
+
+    --button-secondary-inactive-bg: #E6E6E6;
+    --button-secondary-inactive-text: #000;
+    --button-secondary-inactive-border: #BA97A7;
+
+    --button-secondary-focus-bg: #FCEDF4;
+    --button-secondary-focus-text: #E2006A;
+    --button-secondary-focus-border: #FCEDF4;
+    --button-secondary-focus-outline: #E2006A;
+
+
+    /* tertiary button */
+    --button-tertiary-bg: #FFF;
+    --button-tertiary-text: #333;
+    --button-tertiary-border: #FFF;
+
+    --button-tertiary-hover-bg: #FFF;
+    --button-tertiary-hover-text: #333;
+    --button-tertiary-hover-border: #FFF;
+
+    --button-tertiary-active-bg: #FFF;
+    --button-tertiary-active-text: #333;
+    --button-tertiary-active-border: #FFF;
+
+    --button-tertiary-inactive-bg: #E6E6E6;
+    --button-tertiary-inactive-text: #000;
+    --button-tertiary-inactive-border: #E6E6E6;
+
+    --button-tertiary-focus-bg: #FFF;
+    --button-tertiary-focus-text: #333;
+    --button-tertiary-focus-border: #FFF;
+    --button-tertiary-focus-outline: #FFF;
+
+
+    /* quaternary button */
+    --button-quaternary-bg: #EBF9FD;
+    --button-quaternary-text: #000;
+    --button-quaternary-border: #FFF;
+
+    --button-quaternary-hover-bg: #FFF;
+    --button-quaternary-hover-text: #333;
+    --button-quaternary-hover-border: #FFF;
+
+    --button-quaternary-active-bg: #EBF9FD;
+    --button-quaternary-active-text: #000;
+    --button-quaternary-active-border: #FFF;
+
+    --button-quaternary-inactive-bg: #D8DDDF;
+    --button-quaternary-inactive-text: #000;
+    --button-quaternary-inactive-border: #D8DDDF;
+
+    --button-quaternary-focus-bg: #FFF;
+    --button-quaternary-focus-text: #333;
+    --button-quaternary-focus-border: #FFF;
+    --button-quaternary-focus-outline: #FFF;
 
 
 
