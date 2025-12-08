@@ -1,3 +1,5 @@
+@vite('resources/js/task.js')
+
 <x-app-layout>
     <div class="max-w-full md:max-w-7xl bg-background md:p-10">
         <div class="max-w-full md:max-w-7xl bg-background md:p-10">
@@ -35,9 +37,20 @@
                     <p class="inline-block text-lg py-3">{{ $task }}</p>
                 </div>
                 <div class="text-text-dark text-lg">
-                    <button>Foto maken</button>
+                    <button id="openCamera">Camera openen</button>
+                    <div class="hidden" id="closeCamera">
+                        <button>Camera sluiten</button>
+
+                        <video id="video" width="640" height="480" autoplay></video>
+
+                        <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+                        <button id="snap">Take Photo</button>
+                    </div>
+                    <img id="photo"/>
+
                 </div>
             </section>
+
 
         </div>
     </div>
