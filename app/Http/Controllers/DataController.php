@@ -17,5 +17,22 @@ class DataController extends Controller
         $answers = Answer::all();
         return view('data.show',compact('users', 'tasks', 'answers'));
     }
+
+    public function show($id)
+    {
+        $task = Task::with('answers')->findOrFail($id);
+        $fact = Task::with('facts')->findOrFail($id);
+
+        return view('task.show', compact('task', 'fact'));
+    }
+
+    public function explanation($id)
+    {
+        $answer = Answer::with('explanation')->findOrFail($id);
+
+        return view('explanation.show', compact('answer'));
+    }
+
+
 }
 

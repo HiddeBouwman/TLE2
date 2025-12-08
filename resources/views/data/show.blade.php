@@ -15,3 +15,9 @@
 </ul>
 @endforeach
 
+{{--@foreach($answers as $answer)--}}
+
+{{--<p>{{ $answer->description }}</p>--}}
+{{--<p>{{ $answer->task_id }}</p>--}}
+
+{{--@endforeach--}}

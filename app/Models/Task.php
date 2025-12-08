@@ -20,9 +20,14 @@ class Task extends Model
 
     }
 
-  public function answers()
+  public function answers(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
       return $this->hasMany(Answer::class);
+  }
+
+  public function facts(): \Illuminate\Database\Eloquent\Relations\HasMany
+  {
+      return$this->hasMany(Fact::class);
   }
 }
 

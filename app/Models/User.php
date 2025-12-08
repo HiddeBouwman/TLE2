@@ -35,10 +35,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public static function find(int $int)
-    {
-    }
-
     /**
      * Get the attributes that should be cast.
      *
@@ -57,6 +53,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Task::class)
         ->withPivot('date');
     }
+
+   public function rewards():\Illuminate\Database\Eloquent\Relations\BelongsToMany
+   {
+       return $this->belongsToMany(Reward::class);
+   }
 
 }
 
