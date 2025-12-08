@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -21,6 +22,9 @@ Route::get('/dashboard', function () {
 Route::get('/daily-question', [QuestionController::class, 'show'])->name('daily-question');
 
 Route::post('/daily-question', [QuestionController::class, 'submit'])->name('daily-question.submit');
+
+
+Route::get('/daily-task', [TaskController::class, 'show'])->name('daily-task');
 
 
 Route::middleware('auth')->group(function () {
