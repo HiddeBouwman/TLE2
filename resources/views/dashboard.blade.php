@@ -29,7 +29,7 @@
         <section id="fact-image" class=" flex justify-center">
             <div class="bg-accent mt-8  lg:h-60 w-4/5 md:h-80  h-full object-cover">
 
-                <img class="object-cover  w-full h-full"
+                <img class="object-cover w-full h-full"
                      src="{{ Vite::asset('resources/images/vliegenzwam.webp') }}"
                      alt="Foto van de vliegenzwam">
 
