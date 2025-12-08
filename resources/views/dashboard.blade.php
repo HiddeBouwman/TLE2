@@ -7,9 +7,9 @@
          --}}
 
         <section id="info" class="flex justify-center ">
-            <div class=" bg-primary lg:w-1/2 mt-10 rounded ">
+            <div class=" bg-primary w-5/6 lg:w-1/2 mt-10">
                 <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl">
-                    {{ __('Klik voor de feit van de dag!') }}
+                    {{ __('Klik voor het feit van de dag!') }}
                 </h1>
             </div>
         </section>
@@ -27,9 +27,9 @@
         </section>
 
         <section id="fact-image" class=" flex justify-center">
-            <div class="bg-accent mt-8  lg:h-60 w-4/5 md:h-80  h-full object-cover">
+            <div class="mt-5 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md">
 
-                <img class="object-cover  w-full h-full"
+                <img class="w-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
                      src="{{ Vite::asset('resources/images/vliegenzwam.webp') }}"
                      alt="Foto van de vliegenzwam">
 
@@ -39,25 +39,26 @@
         <div class="flex flex-col lg:flex-row">
             <div class="flex flex-col justify-center lg:justify-start">
                 <a id="button" href="{{ route('daily-question') }}"
-                   class=" hidden btn-primary text-white text-xl py-3 px-12 lg:ml-40 mt-20 inline-block hover:primary-hover transition duration-300">
+                   class=" hidden btn-primary text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
                     Naar vraag
                 </a>
             </div>
             <section id="text">
                 <div class="flex justify-center lg:justify-start">
-                    <div class="lg:w-30 bg-gradient-lap mx-4 text-2xl lg:text-xl lg:ml-40 mt-10 shadow-lg p-5">
-                        <ul class="list-disc list-inside text-white">
+                    <div class="lg:w-30 bg-gradient-lap mx-4 text-2xl lg:text-xl md:mt-10 shadow-lg p-5">
+                        <ul class="list-disc list-inside text-white ">
                             <li>
-                                Lees het weetje!
+                                Lees het feit van de dag!
                             </li>
                             <li>
                                 Doe de opdracht!
                             </li>
+
                             <li>
-                                Behoud de streak!
+                                Behaal prijzen door de reeks te behouden!
                             </li>
                             <li>
-                                Behaal prijzen!
+                                Behoud de reeks voor 30 dagen en verdien een boom met jouw naam!
                             </li>
                         </ul>
                     </div>
