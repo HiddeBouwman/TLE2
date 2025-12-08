@@ -17,6 +17,10 @@
         background-color: var(--color-accent);
     }
 
+    .bg-background {
+        background-color: var(--color-background);
+    }
+
     .bg-gradient-lap {
         background: linear-gradient(to bottom, var(--color-secondary), var(--color-accent));
     }

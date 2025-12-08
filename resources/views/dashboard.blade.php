@@ -38,7 +38,7 @@
             </div>
         </section>
 
-        <div class="flex flex-col justify-center items-center lg:justify-start w-full mt-2">
+        <div class="flex flex-col justify-center items-center lg:justify-start w-full my-2">
             <a id="button" href="{{ route('daily-question') }}"
                class="btn-primary hidden text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
                 Naar vraag
@@ -65,39 +65,41 @@
                     </ul>
                 </div>
             </div>
-                <div
-                    class="md:w-1/2 mx-4 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
-                    <ol class="flex justify-between items-start relative z-10 px-2">
-                        @foreach([13,14,15,16,17,18,19] as $day)
-                            @php
-                                $isRed = in_array($day, [17,18,19]);
-                                $bg = $isRed ? 'bg-red-700' : 'bg-emerald-500';
-                            @endphp
-                            <li class="flex flex-col items-center text-center w-12">
-                                <div
-                                    class="{{ $bg }} text-white rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg">
-                                    <span class="font-semibold">{{ $day }}</span>
-                                </div>
-                                @if(in_array($day, [13, 14, 15, 16]))
-                                    <img src="{{ Vite::asset('resources/images/roos.png') }}"
-                                         alt="op deze afbeelding is een rode roos te zien"
-                                         class="mt-3 h-12 w-auto">
-                                @endif
-                                @if(in_array($day, [17, 18, 19]))
-                                    <img src="{{ Vite::asset('resources/images/verwelkteroos.png') }}"
-                                         alt="op deze afbeelding is een verwelkte rode roos te zien"
-                                         class="mt-3 h-12 w-auto">
-                                @endif
-                                <!-- small gift icon under day 15 and 18 -->
-                                @if(in_array($day, [15,18]))
-                                    <img src="{{ Vite::asset('resources/images/gift.png') }}"
-                                         alt="op deze afbeelding is een cadeau te zien"
-                                         class="mt-2 h-6 w-auto">
-                                @endif
-                            </li>
-                        @endforeach
-                    </ol>
-                </div>
+        </section>
+        <section class="flex justify-center content-center items-center">
+            <div
+                class="bg-background w-full lg:w-1/2 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
+                <ol class="flex justify-between items-start relative z-10">
+                    @foreach([13,14,15,16,17,18,19] as $day)
+                        @php
+                            $isRed = in_array($day, [17,18,19]);
+                            $bg = $isRed ? 'bg-red-700' : 'bg-emerald-500';
+                        @endphp
+                        <li class="flex flex-col items-center text-center w-12">
+                            <div
+                                class="{{ $bg }} text-white rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg">
+                                <span class="font-semibold">{{ $day }}</span>
+                            </div>
+                            @if(in_array($day, [13, 14, 15, 16]))
+                                <img src="{{ Vite::asset('resources/images/roos.png') }}"
+                                     alt="op deze afbeelding is een rode roos te zien"
+                                     class="mt-3 h-12 w-auto">
+                            @endif
+                            @if(in_array($day, [17, 18, 19]))
+                                <img src="{{ Vite::asset('resources/images/verwelkteroos.png') }}"
+                                     alt="op deze afbeelding is een verwelkte rode roos te zien"
+                                     class="mt-3 h-12 w-auto">
+                            @endif
+                            <!-- small gift icon under day 15 and 18 -->
+                            @if(in_array($day, [15,18]))
+                                <img src="{{ Vite::asset('resources/images/gift.png') }}"
+                                     alt="op deze afbeelding is een cadeau te zien"
+                                     class="mt-2 h-6 w-auto">
+                            @endif
+                        </li>
+                    @endforeach
+                </ol>
+            </div>
         </section>
     </x-slot>
 </x-app-layout>
