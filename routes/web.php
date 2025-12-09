@@ -33,5 +33,9 @@ Route::get('/streakoverzicht', function () {
     return view('streakOverview');
 })->name('streakoverzicht');
 
+Route::get('data/show', [\App\Http\Controllers\DataController::class, 'index']);
+Route::get('answer/show/{id}', [\App\Http\Controllers\DataController::class, 'show']);
+Route::get('explanation/show/{id}', [\App\Http\Controllers\DataController::class, 'explanation']);
+
 require __DIR__ . '/auth.php';
 require __DIR__ . '/auth.php';
