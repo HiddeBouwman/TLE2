@@ -23,7 +23,7 @@
 
                 <h2 class="text-3xl font-bold leading-tight text-white">Opnieuw proberen?</h2>
 
-                <a href="{{ route('dagelijkse-vraag/') }}"
+                <a href="{{ route('dagelijkse-vraag') }}"
                    class="inline-flex items-center justify-center gap-2 mt-8 w-fit px-8 py-4 rounded-md text-white text-lg font-semibold
                           bg-pink-600 hover:bg-pink-700 hover:shadow-lg transition-all duration-200">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -37,5 +37,3 @@
     </div>
 
 </x-app-layout>
-
-

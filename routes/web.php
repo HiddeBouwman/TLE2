@@ -19,6 +19,10 @@ Route::get('/feitje', function () {
     return view('dashboard');
 })->name('feitje');
 
+Route::get('/dagelijkse-vraag', function () {
+    return redirect()->route('fallback');
+});
+
 Route::get('/dagelijkse-vraag/{id}', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
 Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('dagelijkse-vraag.submit');
@@ -42,5 +46,8 @@ Route::get('/reeks-overzicht', function () {
 Route::get('data/show', [\App\Http\Controllers\DataController::class, 'index']);
 Route::get('answer/show/{id}', [\App\Http\Controllers\DataController::class, 'show']);
 Route::get('explanation/show/{id}', [\App\Http\Controllers\DataController::class, 'explanation']);
+Route::get('/fallback', function () {
+    return view('fallback');
+})->name('fallback');
 
 require __DIR__ . '/auth.php';
