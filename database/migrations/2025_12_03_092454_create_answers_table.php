@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->text('option')->nullable();
+            $table->boolean('correct_option')->nullable();
             $table->string('image')->nullable();
             $table->foreignId('task_id')->constrained()->onDelete('cascade');
             $table->timestamps();
