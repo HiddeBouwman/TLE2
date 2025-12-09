@@ -26,6 +26,8 @@ Route::post('/daily-question', [QuestionController::class, 'submit'])->name('dai
 
 Route::get('/daily-task', [TaskController::class, 'show'])->name('daily-task');
 
+Route::post('/save-photo', [TaskController::class, 'store'])->name('save-photo');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

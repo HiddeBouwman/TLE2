@@ -1,6 +1,7 @@
 @vite('resources/js/task.js')
 
 <x-app-layout>
+
     <div class="max-w-full md:max-w-7xl bg-background md:p-10">
         <div class="max-w-full md:max-w-7xl bg-background md:p-10">
             <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left">Dagelijkse taak</h1>
@@ -46,8 +47,8 @@
                         <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
                         <button id="snap">Take Photo</button>
                     </div>
-                    <img id="photo"/>
-
+                    <img id="photo" alt="">
+                    <button id="save">Save image</button>
                 </div>
             </section>
 
