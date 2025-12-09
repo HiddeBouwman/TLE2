@@ -14,9 +14,9 @@ Route::get('juist-antwoord', [CorrectAnswerController::class, 'index'])->name('j
 Route::get('fout-antwoord', [WrongAnswerController::class, 'index'])->name('fout-antwoord');
 
 
-Route::get('/dashboard', function () {
+Route::get('/feitje', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('feitje');
 
 Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
