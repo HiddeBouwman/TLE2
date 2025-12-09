@@ -19,8 +19,9 @@ class QuestionController
 //            ],
 //            'correct' => 'A'
 //        ];
-//
+//        Test
 //        return view('daily-question', compact('question'));
+
 
         $task = Task::with('answers')->findOrFail($id);
         $fact = Task::with('facts')->findOrFail($id);
