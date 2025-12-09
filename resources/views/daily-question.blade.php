@@ -44,8 +44,8 @@
                             @foreach($question['options'] as $key => $option)
                                 <div class="mb-3">
                                     <input type="radio" id="option{{ $key }}" name="answer" value="{{ $key }}"
-                                           class="mr-2">
-                                    <label for="option{{ $key }}">{{ $key }}. {{ $option }}</label>
+                                           class="mr-2 cursor-pointer">
+                                    <label class="cursor-pointer" for="option{{ $key }}">{{ $key }}. {{ $option }}</label>
                                 </div>
                             @endforeach
                         </div>

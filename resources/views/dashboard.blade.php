@@ -7,7 +7,7 @@
          --}}
 
         <section id="info" class="flex justify-center ">
-            <div class=" bg-primary w-5/6 lg:w-1/2 mt-10">
+            <div class=" bg-primary w-5/6 lg:w-1/2 mt-10 cursor-pointer">
                 <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl font-extrabold">
                     {{ __('Klik voor het feit van de dag!') }}
                 </h1>
@@ -16,7 +16,7 @@
         <section id="fact" class="hidden">
             <div class="flex justify-center">
                 <div
-                    class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md">
+                    class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md cursor-pointer">
                     <h2 class="text-center text-3xl font-bold">De vliegenzwam</h2>
                     <p class="text-center text-2xl">
                         De Vliegenzwam is een paddenstoel wat een symbiotische relatie heeft met bomen, de Vliegzwam
@@ -28,7 +28,7 @@
         </section>
 
         <section id="fact-image" class="flex justify-center mt-5 mb-2">
-            <div class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md">
+            <div class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer">
 
                 <img
                     class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
