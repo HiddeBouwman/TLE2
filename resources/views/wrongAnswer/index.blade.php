@@ -1,3 +1,30 @@
+{{--@php use Illuminate\Support\Facades\Vite; @endphp--}}
+{{--<x-app-layout>--}}
+{{--    <div>--}}
+{{--        <div>--}}
+{{--            <x-answerResult>Niet helemaal...</x-answerResult>--}}
+{{--        </div>--}}
+
+{{--        <div class="flex">--}}
+{{--            <div class="">--}}
+{{--                <img src="{{ Vite::asset('resources/img/dystopie.png') }}"--}}
+{{--                     alt="somber toekomstbeeld zonder paddenstoelen"--}}
+{{--                     class="">--}}
+{{--            </div>--}}
+
+{{--            <div class="flex flex-col gap-[5vw] bg-gradient-lap text-white">--}}
+{{--                <h2>Dit antwoordt was niet juist!</h2>--}}
+{{--                <p>Regenwater drinken in plaats van kraanwater zou kunnen helpen aangezien je hiermee water bespaart--}}
+{{--                    op het waternet, maar het is waarschijnlijk niet gezond voor je.</p>--}}
+{{--                <p>Opnieuw proberen?</p>--}}
+{{--                <a href="{{ route('daily-question') }}"--}}
+{{--                   class="w-60 text-center bg-[--color-primary] text-white hover:shadow-lg hover:scale-105 transition-all duration-200 font-semibold">--}}
+{{--                    Terug naar de vraag</a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</x-app-layout>--}}
+
 @php use Illuminate\Support\Facades\Vite; @endphp
 <x-app-layout>
     <div class="container mx-auto px-4 py-8">
@@ -22,12 +49,13 @@
                 </div>
 
                 <h2 class="text-3xl font-bold leading-tight text-white">Opnieuw proberen?</h2>
-                <a class="group flex justify-center items-center gap-2 mt-4 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out"
-                   href="{{ route('dagelijkse-vraag') }}">
-                    <svg
-                        class="w-4 h-4 block fill-current group-hover:-translate-x-1 transition-transform ease-in-out duration-500 scale-x-[-1]"
-                        aria-hidden="true">
-                        <path d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
+
+                <a href="{{ route('daily-question') }}"
+                   class="inline-flex items-center justify-center gap-2 mt-8 w-fit px-8 py-4 rounded-md text-white text-lg font-semibold
+                          bg-pink-600 hover:bg-pink-700 hover:shadow-lg transition-all duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                     </svg>
                     Terug naar de vraag
                 </a>
@@ -36,3 +64,5 @@
     </div>
 
 </x-app-layout>
+
+
