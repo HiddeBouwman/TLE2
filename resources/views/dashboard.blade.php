@@ -47,7 +47,7 @@
 
         <section class="flex flex-col lg:flex-row justify-center items-center text-center">
             <div id="text"
-                 class="flex justify-center lg:justify-start w-5/6 md:w-1/2 bg-gradient-lap mx-4 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
+                 class="flex justify-center text-left w-5/6 lg:w-1/2 bg-gradient-lap mx-4 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
                 <div>
                     <ul class="list-disc list-inside text-white ">
                         <li>
