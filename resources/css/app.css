@@ -225,22 +225,27 @@
 
 .btn-primary:disabled svg {
     transform: none !important;
+    cursor: not-allowed;
 }
 
 .btn-secondary:disabled svg {
     transform: none !important;
+    cursor: not-allowed;
 }
 
 .btn-tertiary:disabled svg {
     transform: none !important;
+    cursor: not-allowed;
 }
 
 .btn-quaternary:disabled svg {
     transform: none !important;
+    cursor: not-allowed;
 }
 
 .btn-quinary:disabled svg {
     transform: none !important;
+    cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
