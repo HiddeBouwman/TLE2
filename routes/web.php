@@ -10,28 +10,27 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('correctAnswer', [CorrectAnswerController::class, 'index'])->name('correctAnswer');
-Route::get('wrongAnswer', [WrongAnswerController::class, 'index'])->name('wrongAnswer');
+Route::get('juist-antwoord', [CorrectAnswerController::class, 'index'])->name('juist-antwoord');
+Route::get('fout-antwoord', [WrongAnswerController::class, 'index'])->name('fout-antwoord');
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/daily-question', [QuestionController::class, 'show'])->name('daily-question');
+Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
-Route::post('/daily-question', [QuestionController::class, 'submit'])->name('daily-question.submit');
+Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('dagelijkse-vraag.submit');
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
+    Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
+    Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 });
 
-Route::get('/streakoverzicht', function () {
+Route::get('/reeks-overzicht', function () {
     return view('streakOverview');
-})->name('streakoverzicht');
+})->name('reeks-overzicht');
 
-require __DIR__ . '/auth.php';
 require __DIR__ . '/auth.php';
