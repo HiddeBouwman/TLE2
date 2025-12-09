@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->boolean('role')->default(0);
-            $table->integer('streak_counter');
+            $table->integer('streak_counter')->default(0);
             $table->timestamps();
         });
 

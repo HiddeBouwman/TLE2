@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'streak_counter',
     ];
 
     /**
@@ -48,8 +50,14 @@ class User extends Authenticatable
 
     public function tasks(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Task::class);
+        return $this->belongsToMany(Task::class)
+        ->withPivot('date');
     }
+
+   public function rewards():\Illuminate\Database\Eloquent\Relations\BelongsToMany
+   {
+       return $this->belongsToMany(Reward::class);
+   }
 
 }
 
