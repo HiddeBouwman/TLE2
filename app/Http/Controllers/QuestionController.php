@@ -7,11 +7,26 @@ use Illuminate\Http\Request;
 
 class QuestionController
 {
-    public function show()
+    public function show($id)
     {
-        $task = Task::with('answers', 'facts')->firstOrFail();
+//        $question = [
+//            'text' => 'Welke kleine gewoonte helpt indirect mee aan het behoud van soorten zoals de vliegenzwam?',
+//            'options' => [
+//                'A' => 'Kiezen voor biologische producten wanneer mogelijk.',
+//                'B' => 'Regenwater drinken in plaats van kraanwater.',
+//                'C' => 'Elke dag een uur wandelen in de natuur.',
+//                'D' => 'Nooit foto’s maken van paddenstoelen.',
+//            ],
+//            'correct' => 'A'
+//        ];
+//        Test
+//        return view('daily-question', compact('question'));
 
-        return view('daily-question', compact('task'));
+
+        $task = Task::with('answers')->findOrFail($id);
+        $fact = Task::with('facts')->findOrFail($id);
+
+        return view('daily-question', compact('task', 'fact'));
     }
 
     public function submit(Request $request)
