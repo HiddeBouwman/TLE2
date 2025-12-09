@@ -7,17 +7,18 @@
          --}}
 
         <section id="info" class="flex justify-center ">
-            <div class=" bg-primary w-5/6 lg:w-1/2 mt-10">
-                <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl">
+            <div class=" bg-primary w-5/6 lg:w-1/2 mt-10 cursor-pointer">
+                <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl font-extrabold">
                     {{ __('Klik voor het feit van de dag!') }}
                 </h1>
             </div>
         </section>
         <section id="fact" class="hidden">
             <div class="flex justify-center">
-                <div class="bg-accent mt-8 text-4xl w-4/5  md:h-80 lg:h-60  h-full">
-                    <h2 class=" text-white text-center pt-2">De vliegenzwam</h2>
-                    <p class=" text-white  text-center p-8 text-2xl ">
+                <div
+                    class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md cursor-pointer">
+                    <h2 class="text-center text-3xl font-bold">De vliegenzwam</h2>
+                    <p class="text-center text-2xl">
                         De Vliegenzwam is een paddenstoel wat een symbiotische relatie heeft met bomen, de Vliegzwam
                         helpt met meer mineralen naar de boom te transporteren, waar de paddenstoel krijgt daarvoor
                         suikers van de boom.
@@ -26,46 +27,49 @@
             </div>
         </section>
 
-        <section id="fact-image" class=" flex justify-center">
-            <div class="mt-5 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md">
+        <section id="fact-image" class="flex justify-center mt-5 mb-2">
+            <div class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer">
 
-                <img class="w-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
-                     src="{{ Vite::asset('resources/images/vliegenzwam.webp') }}"
-                     alt="Foto van de vliegenzwam">
+                <img
+                    class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
+                    src="{{ Vite::asset('resources/images/vliegenzwam.webp') }}"
+                    alt="Foto van de vliegenzwam">
 
             </div>
         </section>
 
-        <div class="flex flex-col lg:flex-row">
-            <div class="flex flex-col justify-center lg:justify-start">
-                <a id="button" href="{{ route('daily-question') }}"
-                   class=" hidden btn-primary text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
-                    Naar vraag
-                </a>
-            </div>
-            <section id="text">
-                <div class="flex justify-center lg:justify-start">
-                    <div class="lg:w-30 bg-gradient-lap mx-4 text-2xl lg:text-xl md:mt-10 shadow-lg p-5">
-                        <ul class="list-disc list-inside text-white ">
-                            <li>
-                                Lees het feit van de dag!
-                            </li>
-                            <li>
-                                Doe de opdracht!
-                            </li>
-                            <li>
-                                Behaal prijzen door de reeks te behouden!
-                            </li>
-                            <li>
-                                Behoud de reeks voor 30 dagen en verdien een boom met jouw naam!
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+        <div class="flex flex-col justify-center items-center lg:justify-start w-full my-2">
+            <a id="button" href="{{ route('dagelijkse-vraag') }}"
+               class="btn-primary hidden text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
+                Naar vraag
+            </a>
+        </div>
 
-            <div class="lg:ml-auto  mr-36 lg:w-2/5 mt-20 ">
-                <ol class="flex justify-between items-start relative z-10 px-2">
+        <section class="flex flex-col lg:flex-row justify-center items-center text-center">
+            <div id="text"
+                 class="flex justify-center text-left w-5/6 lg:w-1/2 bg-gradient-lap mx-4 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
+                <div>
+                    <ul class="list-disc list-inside text-white ">
+                        <li>
+                            Lees het feit van de dag!
+                        </li>
+                        <li>
+                            Doe de opdracht!
+                        </li>
+                        <li>
+                            Behaal prijzen door de reeks te behouden!
+                        </li>
+                        <li>
+                            Behoud de reeks voor 30 dagen en verdien een boom met jouw naam!
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="flex justify-center content-center items-center">
+            <div
+                class="bg-background w-full lg:w-1/2 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
+                <ol class="flex justify-between items-start relative z-10">
                     @foreach([13,14,15,16,17,18,19] as $day)
                         @php
                             $isRed = in_array($day, [17,18,19]);
@@ -73,7 +77,7 @@
                         @endphp
                         <li class="flex flex-col items-center text-center w-12">
                             <div
-                                class="{{ $bg }} text-white rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg -mt-6">
+                                class="{{ $bg }} text-white rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg">
                                 <span class="font-semibold">{{ $day }}</span>
                             </div>
                             @if(in_array($day, [13, 14, 15, 16]))
@@ -96,6 +100,6 @@
                     @endforeach
                 </ol>
             </div>
-        </div>
+        </section>
     </x-slot>
 </x-app-layout>
