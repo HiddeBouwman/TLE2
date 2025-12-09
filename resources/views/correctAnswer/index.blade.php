@@ -29,7 +29,7 @@
                         beter is voor de natuur, is het ook beter en veiliger voor jezelf</p>
                 </div>
 
-                <a href="{{ route('streakoverzicht') }}"
+                <a href="{{ route('reeks-overzicht') }}"
                    class="inline-flex items-center justify-center gap-2 mt-8 w-fit px-8 py-4 rounded-md text-white text-lg font-semibold
                           bg-pink-600 hover:bg-pink-700 hover:shadow-lg transition-all duration-200">
                     Naar overzicht

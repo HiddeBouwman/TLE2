@@ -67,7 +67,7 @@
             </section>
             <div class="flex justify-center items-center md:justify-start">
                 <a class="group flex justify-center items-center gap-2 mt-4 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out"
-                   href="{{ route('dashboard') }}">
+                   href="{{ route('feitje') }}">
                     <svg
                         class="w-4 h-4 block fill-current group-hover:-translate-x-1 transition-transform ease-in-out duration-500 scale-x-[-1]"
                         aria-hidden="true">
