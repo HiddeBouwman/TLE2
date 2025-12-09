@@ -7,31 +7,34 @@ use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
-Route::get('correctAnswer', [CorrectAnswerController::class, 'index'])->name('correctAnswer');
-Route::get('wrongAnswer', [WrongAnswerController::class, 'index'])->name('wrongAnswer');
+Route::get('juist-antwoord', [CorrectAnswerController::class, 'index'])->name('juist-antwoord');
+Route::get('fout-antwoord', [WrongAnswerController::class, 'index'])->name('fout-antwoord');
 
 
-Route::get('/dashboard', function () {
+Route::get('/feitje', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('feitje');
 
-Route::get('/daily-question', [QuestionController::class, 'show'])->middleware(['auth', 'verified'])->name('daily-question');
+Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
-Route::post('/daily-question', [QuestionController::class, 'submit'])->middleware(['auth', 'verified'])->name('daily-question.submit');
+Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('dagelijkse-vraag.submit');
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
+    Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
+    Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 });
 
-Route::get('/streakoverzicht', function () {
+Route::get('/reeks-overzicht', function () {
     return view('streakOverview');
-})->name('streakoverzicht');
+})->name('reeks-overzicht');
 
-require __DIR__ . '/auth.php';
+Route::get('data/show', [\App\Http\Controllers\DataController::class, 'index']);
+Route::get('answer/show/{id}', [\App\Http\Controllers\DataController::class, 'show']);
+Route::get('explanation/show/{id}', [\App\Http\Controllers\DataController::class, 'explanation']);
+
 require __DIR__ . '/auth.php';
