@@ -39,7 +39,7 @@
         </section>
 
         <div class="flex flex-col justify-center items-center lg:justify-start w-full my-2">
-            <a id="button" href="{{ route('daily-question') }}"
+            <a id="button" href="{{ route('dagelijkse-vraag') }}"
                class="btn-primary hidden text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
                 Naar vraag
             </a>

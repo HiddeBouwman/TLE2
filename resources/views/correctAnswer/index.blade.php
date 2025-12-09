@@ -30,7 +30,7 @@
                         beter is voor de natuur, is het ook beter en veiliger voor jezelf</p>
                 </div>
 
-                <a href="{{ route('streakoverzicht') }}"
+                <a href="{{ route('reeks-overzicht') }}"
                    class="group flex justify-center items-center gap-2 mt-4 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out">
                     Naar overzicht
                     <svg class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

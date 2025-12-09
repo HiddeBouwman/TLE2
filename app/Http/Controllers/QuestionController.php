@@ -26,9 +26,9 @@ class QuestionController
     {
         $answer = $request->input('answer');
         if ($answer == 'A') {
-            return redirect()->route('correctAnswer');
+            return redirect()->route('juist-antwoord');
         } else {
-            return redirect()->route('wrongAnswer');
+            return redirect()->route('fout-antwoord');
         }
     }
 }
