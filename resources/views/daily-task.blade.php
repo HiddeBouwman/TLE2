@@ -1,6 +1,9 @@
 @vite('resources/js/task.js')
 
 <x-app-layout>
+    <script>
+        window.savePhotoUrl = "{{ route('save-photo') }}";
+    </script>
 
     <div class="max-w-full md:max-w-7xl bg-background md:p-10">
         <div class="max-w-full md:max-w-7xl bg-background md:p-10">

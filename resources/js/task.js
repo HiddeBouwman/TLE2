@@ -3,6 +3,7 @@ let cameraStream = null;
 let openCamera = null;
 let closeCamera = null;
 
+
 function init() {
 
     openCamera = document.getElementById('openCamera')
@@ -75,40 +76,24 @@ function hideCameraButton(nameHidden, nameShowing) {
 
 function saveImage() {
     const canvas = document.getElementById("canvas");
-    const dataUrl = canvas.toDataURL("image/png");
+    const dataUrl = canvas.toDataURL("image/png"); // base64 string
 
-    // Convert base64 to Blob
-    function dataURLtoBlob(dataUrl) {
-        const arr = dataUrl.split(',');
-        const mime = arr[0].match(/:(.*?);/)[1];
-        const bstr = atob(arr[1]);
-        let n = bstr.length;
-        const u8arr = new Uint8Array(n);
-        while (n--) {
-            u8arr[n] = bstr.charCodeAt(n);
-        }
-        return new Blob([u8arr], {type: mime});
-    }
-
-    const blob = dataURLtoBlob(dataUrl);
     const formData = new FormData();
-    formData.append("image", blob, "snapshot.png");
+    formData.append("image_base64", dataUrl);
 
-    fetch("/save-photo", {
+    fetch(window.savePhotoUrl, {
         method: "POST",
         body: formData,
         headers: {
             "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
         }
     })
-
         .then(response => response.json())
         .then(data => {
             console.log("Image saved:", data);
             alert("Image saved successfully!");
         })
         .catch(error => console.error("Upload error:", error));
-
 }
 
 
