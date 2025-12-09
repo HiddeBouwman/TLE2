@@ -7,7 +7,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Feitje') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             @else
                 <!-- Login button (guest) - desktop -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
-                    <a href="{{ route('inloggen') }}"
+                    <a href="{{ route('login') }}"
                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:ring-2 focus:ring-indigo-500 transition ease-in-out duration-150">
                         {{ __('Inloggen') }}
                     </a>
@@ -92,7 +92,7 @@
                 @else
                     <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
                         <div class="px-4">
-                            <a href="{{ route('inloggen') }}"
+                            <a href="{{ route('login') }}"
                                class="block w-full text-center px-4 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900">
                                 {{ __('Inloggen') }}
                             </a>
