@@ -70,9 +70,14 @@
                         </div>
 
                         <div class=" mt-6 text-center">
-                            <a href="https://www.natuurmonumenten.nl/word-lid"
-                               class="inline-block btn-primary  font-semibold px-12 py-4 rounded-full shadow-lg">
+                            <a class="group flex justify-center items-center gap-2 mt-4 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out"
+                               href="https://www.natuurmonumenten.nl/word-lid">
                                 Lid worden
+                                <svg
+                                    class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500"
+                                    aria-hidden="true">
+                                    <path d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
+                                </svg>
                             </a>
                         </div>
                     </div>
