@@ -2,7 +2,7 @@ window.addEventListener('load', init)
 let cameraStream = null;
 let openCamera = null;
 let closeCamera = null;
-
+let saveButton;
 
 function init() {
 
@@ -12,7 +12,7 @@ function init() {
     closeCamera = document.getElementById('closeCamera')
     closeCamera.addEventListener('click', () => stopCamera("video"))
 
-    let saveButton = document.getElementById('save')
+    saveButton = document.getElementById('save')
     saveButton.addEventListener('click', saveImage)
 
 }
@@ -21,6 +21,7 @@ function OpenCamera() {
     startCamera("video");
     photo.src = ""
     photo.classList.add("hidden")
+    saveButton.classList.add('hidden')
     document.getElementById("snap").addEventListener("click", () => {
         takeSnapshot("video", "canvas", "photo")
     });
@@ -62,7 +63,7 @@ function takeSnapshot(videoId, canvasId, imgId) {
     document.getElementById(imgId).src = dataUrl
 
     photo.classList.remove('hidden')
-
+    saveButton.classList.remove('hidden')
 
 }
 
@@ -76,7 +77,7 @@ function hideCameraButton(nameHidden, nameShowing) {
 
 function saveImage() {
     const canvas = document.getElementById("canvas");
-    const dataUrl = canvas.toDataURL("image/png"); // base64 string
+    const dataUrl = canvas.toDataURL("image/png");
 
     const formData = new FormData();
     formData.append("image_base64", dataUrl);

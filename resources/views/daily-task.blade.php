@@ -51,7 +51,7 @@
                         <button id="snap">Take Photo</button>
                     </div>
                     <img id="photo" alt="">
-                    <button id="save">Save image</button>
+                    <button class="hidden" id="save">Save image</button>
                 </div>
             </section>
 
