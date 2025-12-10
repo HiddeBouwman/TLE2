@@ -61,11 +61,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Reward::class);
     }
 
-    public function stats(): BelongsTo
-    {
-        return $this->belongsTo(Stats::class);
-    }
-
 }
 
 
