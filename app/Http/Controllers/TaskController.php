@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fact;
+use App\Models\Task;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -13,9 +16,13 @@ class TaskController extends Controller
     //
     public function show()
     {
-        $task = 'Maak een foto van de vliegenzwam.';
+        $task = Task::where('id', 1)->first();
 
-        return view('daily-task', compact('task'));
+        if ($task) {
+            $fact = Fact::where('task_id', $task->id)->first();
+
+        }
+        return view('daily-task', compact('fact', 'task'));
 
     }
 
@@ -25,7 +32,7 @@ class TaskController extends Controller
         try {
             $validated = $request->validate([
                 'image_base64' => 'required|string',
-//                'task_id' => 'required|exists:tasks,id',
+                'task_id' => 'required|exists:tasks,id',
                 'option' => 'nullable|string',
             ]);
 
@@ -43,7 +50,7 @@ class TaskController extends Controller
 
             $answer = Answer::create([
                 'image' => $filename,
-                'task_id' => 1, //$validated['task_id'],
+                'task_id' => $validated['task_id'],
                 'option' => $validated['option'] ?? null,
             ]);
 
