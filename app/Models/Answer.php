@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
-    //
+
+
     protected $fillable = [
-        'description',
+        'option',
         'task_id',
         'image',
     ];
@@ -22,6 +23,5 @@ class Answer extends Model
     {
         return $this->belongsTo(Task::class);
     }
-
 
 }

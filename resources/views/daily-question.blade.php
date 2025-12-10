@@ -1,4 +1,10 @@
 <x-app-layout>
+    @foreach($task->facts as $fact)
+{{--        <p>{{ $fact->name }}</p>--}}
+{{--        <p>{{ $fact->description }}</p>--}}
+{{--        <p>{{ $fact->scenario }}</p>--}}
+    @endforeach
+
     <div class="bg-background w-full flex justify-center py-10">
 
         <div class="max-w-full md:max-w-7xl md:p-10">
@@ -10,12 +16,7 @@
                     <div class="bg-gradient-lap rounded-t-md md:rounded-md shadow-md w-11/12 md:w-full">
                         <h2 class="sr-only">Inleiding</h2>
                         <p class="w-full md:w-1/2 p-6 text-lg">
-                            In een <strong>dystopische toekomst</strong> zou het verdwijnen van de vliegenzwam laten
-                            zien
-                            hoe
-                            hard onze natuur instort. Bossen die ooit vol kleur en leven waren, worden aan saaie,
-                            kwetsbare plekken. Het is niet alleen een ecologisch verlies, maar ook iets dat de wereld
-                            minder bijzonder en minder leefbaar maakt.
+                            {{ $fact->scenario }}
                         </p>
                     </div>
                     <div
@@ -30,10 +31,11 @@
             <section class="p-2 md:p-6 mt-4 bg-white shadow-lg">
                 <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left">
                     Nu aan jou de vraag…
+                    <p>{{ $task->question }}</p>
                 </h2>
 
                 <div class="mb-6">
-                    <p class="inline-block text-lg py-3">{{ $question['text'] }}</p>
+{{--                    <p class="inline-block text-lg py-3">{{ $question['text'] }}</p>--}}
                 </div>
 
                 <form class="mt-8" action="{{ route('dagelijkse-vraag.submit') }}" method="post">
@@ -41,11 +43,11 @@
                     <fieldset>
                         <legend class="sr-only">Antwoordopties</legend>
                         <div class="text-text-dark text-lg">
-                            @foreach($question['options'] as $key => $option)
+                            @foreach($task->answers as $answer)
                                 <div class="mb-3">
-                                    <input type="radio" id="option{{ $key }}" name="answer" value="{{ $key }}"
+                                    <input type="radio" id="option" name="answer" value="{{ $answer->correct_option }}"
                                            class="mr-2 cursor-pointer">
-                                    <label class="cursor-pointer" for="option{{ $key }}">{{ $key }}. {{ $option }}</label>
+                                    <label class="cursor-pointer" for="option"> {{ $answer->option }}</label>
                                 </div>
                             @endforeach
                         </div>
@@ -65,7 +67,7 @@
             </section>
             <div class="flex justify-center items-center md:justify-start">
                 <a class="group flex justify-center items-center gap-2 mt-4 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out"
-                   href="{{ route('dashboard') }}">
+                   href="{{ route('feitje') }}">
                     <svg
                         class="w-4 h-4 block fill-current group-hover:-translate-x-1 transition-transform ease-in-out duration-500 scale-x-[-1]"
                         aria-hidden="true">

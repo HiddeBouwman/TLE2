@@ -12,44 +12,46 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('registreren', [RegisteredUserController::class, 'create'])
-        ->name('registreren');
+    Route::get('register', [RegisteredUserController::class, 'create'])
+        ->name('register');
 
-    Route::post('registreren', [RegisteredUserController::class, 'store']);
+    Route::post('register', [RegisteredUserController::class, 'store']);
 
-    Route::get('inloggen', [AuthenticatedSessionController::class, 'create'])
-        ->name('inloggen');
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
 
-    Route::post('inloggen', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-    Route::get('wachtwoord-vergeten', [PasswordResetLinkController::class, 'create'])
-        ->name('wachtwoord.verzoek');
+    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+        ->name('password.request');
 
-    Route::post('wachtwoord-vergeten', [PasswordResetLinkController::class, 'store'])
-        ->name('wachtwoord.email');
+    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
+        ->name('password.email');
 
-    Route::get('wachtwoord-resetten/{token}', [NewPasswordController::class, 'create'])
-        ->name('wachtwoord.reset');
+    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+        ->name('password.reset');
 
-    Route::post('wachtwoord-resetten', [NewPasswordController::class, 'store'])
-        ->name('wachtwoord.opslaan');
+    Route::post('reset-password', [NewPasswordController::class, 'store'])
+        ->name('password.store');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('email-verificatie', EmailVerificationPromptController::class)
-        ->name('verificatie.melding');
+    Route::get('verify-email', EmailVerificationPromptController::class)
+        ->name('verification.notice');
 
-    Route::get('email-verificatie/{id}/{hash}', VerifyEmailController::class)
+    Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
         ->middleware(['signed', 'throttle:6,1'])
-        ->name('verificatie.verifiëren');
+        ->name('verification.verify');
 
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
         ->middleware('throttle:6,1')
-        ->name('verificatie.verzenden');
+        ->name('verification.send');
 
-    Route::get('wachtwoord-bevestigen', [ConfirmablePasswordController::class, 'show'])
-        ->name('wachtwoord.bevestigen');
+    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+        ->name('password.confirm');
 
-    Route::post('wachtwoord-bevestigen', [ConfirmablePasswordController::class, 'store'])
-        ->name('wachtwoord.bevestigen.post');
+    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
+    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->name('logout');
 });

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -14,13 +15,18 @@ Route::get('juist-antwoord', [CorrectAnswerController::class, 'index'])->name('j
 Route::get('fout-antwoord', [WrongAnswerController::class, 'index'])->name('fout-antwoord');
 
 
-Route::get('/dashboard', function () {
+Route::get('/feitje', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('feitje');
 
-Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
+Route::get('/dagelijkse-vraag/{id}', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
 Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('dagelijkse-vraag.submit');
+
+
+Route::get('/daily-task', [TaskController::class, 'show'])->name('daily-task');
+
+Route::post('/save-photo', [TaskController::class, 'store'])->name('save-photo');
 
 
 Route::middleware('auth')->group(function () {
@@ -32,5 +38,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/reeks-overzicht', function () {
     return view('streakOverview');
 })->name('reeks-overzicht');
+
+Route::get('data/show', [\App\Http\Controllers\DataController::class, 'index']);
+Route::get('answer/show/{id}', [\App\Http\Controllers\DataController::class, 'show']);
+Route::get('explanation/show/{id}', [\App\Http\Controllers\DataController::class, 'explanation']);
 
 require __DIR__ . '/auth.php';
