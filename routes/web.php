@@ -22,7 +22,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
     Route::get('/dagelijkse-vraag', function () {
-        return redirect()->route('fallback');
+        $user = auth()->user();
+        $streak = $user->streak_counter ?? 0;
+        $id = $streak + 1;
+        return redirect()->route('dagelijkse-vraag', ['id' => $id]);
     });
 
     Route::get('/dagelijkse-vraag/{id}', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
