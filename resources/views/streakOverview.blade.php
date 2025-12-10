@@ -17,13 +17,25 @@
 
                     <div class="relative">
 
-                        @php
-                            $percentage = min(100, ($streak / 30) * 100);
-                        @endphp
+                        {{--                        @php--}}
+                        {{--                            $percentage = min(100, ($streak / 30) * 100);--}}
+                        {{--                        @endphp--}}
 
-                        <div class="h-1 bg-red-600 rounded overflow-hidden">
-                            <div class="h-full bg-emerald-500 transition-all duration-500"
-                                 style="width: {{ $percentage }}%"></div>
+                        {{--                        <div class="h-1 bg-red-600 rounded overflow-hidden">--}}
+                        {{--                            <div class="h-full bg-emerald-500 transition-all duration-500"--}}
+                        {{--                                 style="width: {{ $percentage }}%"></div>--}}
+                        {{--                        </div>--}}
+                        {{--                        --}}
+                        <div class="inset-x-0 z-0 px-2">
+                            <div class="flex justify-between items-center">
+                                @foreach(range($startDay, $endDay - 1) as $day)
+                                    @php
+                                        $lineColor = $day < $streak ? 'bg-emerald-500' : 'bg-red-600';
+                                    @endphp
+
+                                    <div class="flex-1 mx-1 h-1 transition-all duration-500 {{ $lineColor }} "></div>
+                                @endforeach
+                            </div>
                         </div>
 
 
@@ -96,7 +108,7 @@
 
                 </div>
 
-                <!-- Right column (left, spans 2) -->
+                <!-- Right column -->
                 <aside class="mt-8 md:mt-0">
                     <div class="relative">
                         <div class="bg-primary text-white font-bold text-2xl text-center py-6 rounded-t-lg shadow-md">
