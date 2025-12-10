@@ -16,9 +16,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
     Route::get('/', function () {
-        $user = auth()->user();
-        $streak = $user->streak_counter ?? 0;
-        $id = $streak + 1;
         return view('dashboard');
     });
 
