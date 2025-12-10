@@ -3,6 +3,7 @@
 $user = auth()->user();
 $streak = $user->streak_counter ?? 0;
 $id = $streak + 1;
+$fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te halen
 ?>
 <x-app-layout>
     <x-slot>
@@ -12,8 +13,9 @@ $id = $streak + 1;
          voor screenreader de fact automatisch laten zien.
          --}}
 
-        <section id="info" class="flex justify-center ">
-            <div class=" bg-primary w-5/6 lg:w-1/2 mt-10 cursor-pointer">
+        <section class="flex justify-center ">
+            <div
+                id="info" class=" bg-primary w-5/6 lg:w-1/2 mt-10 cursor-pointer">
                 <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl font-extrabold">
                     {{ __('Klik voor het feit van de dag!') }}
                 </h1>
@@ -23,19 +25,18 @@ $id = $streak + 1;
             <div class="flex justify-center">
                 <div
                     class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md cursor-pointer">
-                    <h2 class="text-center text-3xl font-bold">De vliegenzwam</h2>
+                    <h2 class="text-center text-3xl font-bold">{{ $fact->name ?? 'Het lijkt er op dat er vandaag geen feitje is...' }}</h2>
                     <p class="text-center text-2xl">
-                        De Vliegenzwam is een paddenstoel wat een symbiotische relatie heeft met bomen, de Vliegzwam
-                        helpt met meer mineralen naar de boom te transporteren, waar de paddenstoel krijgt daarvoor
-                        suikers van de boom.
+                        {{ $fact->description ?? '' }}
                     </p>
                 </div>
             </div>
         </section>
 
-        <section id="fact-image" class="flex justify-center mt-5 mb-2">
-            <div class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer">
-
+        <section class="flex justify-center mt-5 mb-2">
+            <div
+                id="fact-image"
+                class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer">
                 <img
                     class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
                     src="{{ Vite::asset('resources/images/vliegenzwam.webp') }}"
@@ -45,17 +46,27 @@ $id = $streak + 1;
         </section>
 
         @auth
-            <div class="flex flex-col justify-center items-center lg:justify-start w-full my-2">
-                <a id="button" href="{{ route('dagelijkse-vraag', ['id' => $id]) }}"
-                   class="btn-primary hidden text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
+            <div class="flex flex-col justify-center items-center lg:justify-start w-full">
+                <a id="button" href="{{ route('dagelijkse-vraag') }}"
+                   class="hidden group flex justify-center items-center gap-2 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out">
                     Naar vraag
+                    <svg
+                        class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500"
+                        aria-hidden="true">
+                        <path d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
+                    </svg>
                 </a>
             </div>
         @else
-            <div class="flex flex-col justify-center items-center lg:justify-start w-full my-2">
+            <div class="flex flex-col justify-center items-center lg:justify-start w-full">
                 <a id="button" href="{{ route('login') }}"
-                   class="btn-primary hidden text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
+                   class="hidden group flex justify-center items-center gap-2 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out">
                     Log in om te spelen
+                    <svg
+                        class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500"
+                        aria-hidden="true">
+                        <path d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
+                    </svg>
                 </a>
             </div>
         @endauth

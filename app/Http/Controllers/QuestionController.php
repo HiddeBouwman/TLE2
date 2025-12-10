@@ -8,14 +8,15 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class QuestionController
 {
-    public function show($id)
+    public function show()
     {
-        if (!is_numeric($id)) {
-            return redirect()->route('fallback');
-        }
+        $user = auth()->user();
+        $streak = $user->streak_counter ?? 0;
+        $id = $streak + 1;
 
         try {
             $task = Task::with(['answers', 'facts'])->findOrFail($id);
@@ -37,10 +38,11 @@ class QuestionController
                 ->first();
             $user->streak_counter += 1;
             $user->save();
-            return redirect()->route('juist-antwoord', ['id' => $answerId]);
-        } else {
-            return redirect()->route('fout-antwoord', ['id' => $answerId]);
-
         }
+
+        // Store answer ID in session
+        Session::put('answer_id', $answerId);
+
+        return redirect()->route('antwoord');
     }
 }

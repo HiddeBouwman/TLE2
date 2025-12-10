@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-background w-full flex justify-center py-10">
+    <div class="w-full flex justify-center py-10">
 
         <div class="max-w-full md:max-w-7xl md:p-10">
             <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left">Dagelijkse Uitdaging</h1>
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <section class="p-2 md:p-6 mt-4 bg-white shadow-lg">
+            <section class="p-2 md:p-6 mx-4 mt-4 bg-white shadow-lg">
                 <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left">
                     Nu aan jou de vraag…
                     <p>{{ $task->question }}</p>
@@ -39,8 +39,8 @@
                         <div class="text-text-dark text-lg">
                             @foreach($task->answers as $answer)
                                 <div class="mb-3">
-                                    <input type="radio" id="option" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer">
-                                    <label class="cursor-pointer" for="option">{{ $answer->option }}</label>
+                                    <input type="radio" id="option-{{ $answer->id }}" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer">
+                                    <label class="cursor-pointer" for="option-{{ $answer->id }}">{{ $answer->option }}</label>
                                 </div>
                             @endforeach
                         </div>
