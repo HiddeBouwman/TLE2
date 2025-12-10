@@ -38,12 +38,21 @@
             </div>
         </section>
 
-        <div class="flex flex-col justify-center items-center lg:justify-start w-full my-2">
-            <a id="button" href="{{ route('dagelijkse-vraag') }}"
-               class="btn-primary hidden text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
-                Naar vraag
-            </a>
-        </div>
+        @auth
+            <div class="flex flex-col justify-center items-center lg:justify-start w-full my-2">
+                <a id="button" href="{{ route('dagelijkse-vraag') }}"
+                   class="btn-primary hidden text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
+                    Naar vraag
+                </a>
+            </div>
+        @else
+            <div class="flex flex-col justify-center items-center lg:justify-start w-full my-2">
+                <a id="button" href="{{ route('login') }}"
+                   class="btn-primary hidden text-white text-xl py-3 px-12 inline-block hover:primary-hover transition duration-300">
+                    Log in om te spelen
+                </a>
+            </div>
+        @endauth
 
         <section class="flex flex-col lg:flex-row justify-center items-center text-center">
             <div id="text"

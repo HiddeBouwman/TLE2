@@ -3,28 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class QuestionController
 {
     public function show($id)
     {
-//        $question = [
-//            'text' => 'Welke kleine gewoonte helpt indirect mee aan het behoud van soorten zoals de vliegenzwam?',
-//            'options' => [
-//                'A' => 'Kiezen voor biologische producten wanneer mogelijk.',
-//                'B' => 'Regenwater drinken in plaats van kraanwater.',
-//                'C' => 'Elke dag een uur wandelen in de natuur.',
-//                'D' => 'Nooit foto’s maken van paddenstoelen.',
-//            ],
-//            'correct' => 'A'
-//        ];
-//        Test
-//        return view('daily-question', compact('question'));
+        if (!is_numeric($id)) {
+            return redirect()->route('fallback');
+        }
 
-
-        $task = Task::with('answers')->findOrFail($id);
-        $fact = Task::with('facts')->findOrFail($id);
+        try {
+            $task = Task::with(['answers', 'facts'])->findOrFail($id);
+            $fact = $task->facts->first();
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('fallback');
+        }
 
         return view('daily-question', compact('task', 'fact'));
     }
