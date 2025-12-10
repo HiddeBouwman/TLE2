@@ -3,6 +3,7 @@
 $user = auth()->user();
 $streak = $user->streak_counter ?? 0;
 $id = $streak + 1;
+print_r($id)
 ?>
 <x-app-layout>
     <x-slot>

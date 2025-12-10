@@ -34,9 +34,10 @@ class WrongAnswerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(WrongAnswer $wrongAnswer)
+    public function show($id)
     {
-        //
+        $answer = \App\Models\Answer::with('explanation')->findOrFail($id);
+        return view('wrongAnswer.index', compact('answer'));
     }
 
     /**

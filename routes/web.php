@@ -7,33 +7,31 @@ use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-
-Route::get('/feitje', function () {
-    return view('dashboard');
-})->name('feitje');
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
     Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
-    Route::get('/dagelijkse-vraag', function () {
+    Route::get('/', function () {
         $user = auth()->user();
         $streak = $user->streak_counter ?? 0;
         $id = $streak + 1;
+        return view('dashboard');
+    });
+
+    Route::get('/feitje', function () {
+        return view('dashboard');
+    })->name('feitje');
+
+    Route::get('/dagelijkse-vraag', function () {
         return redirect()->route('dagelijkse-vraag', ['id' => $id]);
     });
 
     Route::get('/dagelijkse-vraag/{id}', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
     Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('dagelijkse-vraag.submit');
-
-    Route::get('juist-antwoord', [CorrectAnswerController::class, 'index'])->name('juist-antwoord');
-    Route::get('fout-antwoord', [WrongAnswerController::class, 'index'])->name('fout-antwoord');
+    Route::get('juist-antwoord/{id}', [CorrectAnswerController::class, 'show'])->name('juist-antwoord');
+    Route::get('fout-antwoord/{id}', [WrongAnswerController::class, 'show'])->name('fout-antwoord');
 
     Route::get('/daily-task', [TaskController::class, 'show'])->name('daily-task');
 

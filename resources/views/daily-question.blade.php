@@ -1,10 +1,4 @@
 <x-app-layout>
-    @foreach($task->facts as $fact)
-{{--        <p>{{ $fact->name }}</p>--}}
-{{--        <p>{{ $fact->description }}</p>--}}
-{{--        <p>{{ $fact->scenario }}</p>--}}
-    @endforeach
-
     <div class="bg-background w-full flex justify-center py-10">
 
         <div class="max-w-full md:max-w-7xl md:p-10">
@@ -45,9 +39,8 @@
                         <div class="text-text-dark text-lg">
                             @foreach($task->answers as $answer)
                                 <div class="mb-3">
-                                    <input type="radio" id="option" name="answer" value="{{ $answer->correct_option }}"
-                                           class="mr-2 cursor-pointer">
-                                    <label class="cursor-pointer" for="option"> {{ $answer->option }}</label>
+                                    <input type="radio" id="option" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer">
+                                    <label class="cursor-pointer" for="option">{{ $answer->option }}</label>
                                 </div>
                             @endforeach
                         </div>
