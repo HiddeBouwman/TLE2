@@ -17,15 +17,6 @@
 
                     <div class="relative">
 
-                        {{--                        @php--}}
-                        {{--                            $percentage = min(100, ($streak / 30) * 100);--}}
-                        {{--                        @endphp--}}
-
-                        {{--                        <div class="h-1 bg-red-600 rounded overflow-hidden">--}}
-                        {{--                            <div class="h-full bg-emerald-500 transition-all duration-500"--}}
-                        {{--                                 style="width: {{ $percentage }}%"></div>--}}
-                        {{--                        </div>--}}
-                        {{--                        --}}
                         <div class="inset-x-0 z-0 px-2">
                             <div class="flex justify-between items-center">
                                 @foreach(range($startDay, $endDay - 1) as $day)
@@ -51,15 +42,15 @@
                                     </div>
                                     @if($day <= $streak)
                                         <img src="{{ Vite::asset('resources/images/roos.png') }}"
-                                             alt="roos behaald" class="mt-3 h-12 w-auto">
+                                             alt="" class="mt-3 h-12 w-auto">
                                     @else
                                         <img src="{{ Vite::asset('resources/images/verwelkteroos.png') }}"
-                                             alt="roos niet behaald" class="mt-3 h-12 w-auto">
+                                             alt="" class="mt-3 h-12 w-auto">
                                     @endif
 
                                     @if(in_array($day, $rewardDays))
                                         <img src="{{ Vite::asset('resources/images/gift.png') }}"
-                                             alt="cadeau" class="mt-2 h-6 w-auto">
+                                             alt="" class="mt-2 h-6 w-auto">
                                     @endif
                                 </li>
                             @endforeach
