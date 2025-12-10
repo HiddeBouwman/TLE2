@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController
 {
@@ -26,11 +29,18 @@ class QuestionController
 
     public function submit(Request $request)
     {
-        $correct_answer = $request->input('answer');
-        if ($correct_answer == 1) {
-            return redirect()->route('juist-antwoord');
-        } else if ($correct_answer == 0) {
-            return redirect()->route('fout-antwoord');
+        $answerId = $request->input('answer');
+        $answer = Answer::find($answerId);
+
+        if ($answer && $answer->correct_option == 1) {
+            $user = User::where('id', Auth::id())
+                ->first();
+            $user->streak_counter += 1;
+            $user->save();
+            return redirect()->route('juist-antwoord', ['id' => $answerId]);
+        } else {
+            return redirect()->route('fout-antwoord', ['id' => $answerId]);
+
         }
     }
 }

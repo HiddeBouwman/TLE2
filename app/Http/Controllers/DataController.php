@@ -30,7 +30,7 @@ class DataController extends Controller
     {
         $answer = Answer::with('explanation')->findOrFail($id);
 
-        return view('explanation.show', compact('answer'));
+        return view('wrongAnswer.index', compact('answer'));
     }
 
 

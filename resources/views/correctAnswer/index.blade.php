@@ -1,4 +1,9 @@
 @php use Illuminate\Support\Facades\Vite; @endphp
+<?php
+$user = auth()->user();
+$streak = $user->streak_counter ?? 0;
+$id = $streak + 1;
+?>
 <x-app-layout>
     <div class="container mx-auto px-4 py-8">
         <div class="mb-8">
@@ -15,18 +20,11 @@
 
             <div class="lg:w-1/2 bg-gradient-lap p-12 flex flex-col justify-between">
                 <div class="space-y-6">
-                    <h2 class="text-3xl font-bold leading-tight text-white">Kiezen voor biologische producten wanneer
-                        mogelijk.</h2>
-                    <p class="text-base leading-relaxed text-white">Pesticiden worden gebruikt om planten insectvrij
-                        te
-                        maken, maar beschadigen
-                        hierbij het
-                        bodemecosysteem.
-                        Ze doden of verstoren micro-organismen die belangrijk zijn voor de voedingskringloop.
-                        Biologische producten worden niet bespoten met pesticiden of andere schadelijke stoffen. Naast
-                        dat
-                        het
-                        beter is voor de natuur, is het ook beter en veiliger voor jezelf</p>
+                    <h2 class="text-3xl font-bold leading-tight text-white">{{ $answer->option }}</h2>
+                    @if($answer->explanation)
+                        <p class="text-base leading-relaxed text-white">{{ $answer->explanation->description }}</p>
+                        <p class="text-base leading-relaxed text-white">{{ $answer->explanation->conclusion }}</p>
+                    @endif
                 </div>
 
                 <a href="{{ route('reeks-overzicht') }}"

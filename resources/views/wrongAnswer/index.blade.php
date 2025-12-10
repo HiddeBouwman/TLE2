@@ -21,9 +21,10 @@ $id = $streak + 1;
             <div class="lg:w-1/2 bg-gradient-lap p-12 flex flex-col justify-between">
                 <div class="space-y-6">
                     <h2 class="text-3xl font-bold leading-tight text-white">Dit antwoord is niet juist!</h2>
-                    <p class="text-base leading-relaxed text-white">Regenwater drinken in plaats van kraanwater zou
-                        kunnen helpen aangezien je hiermee water bespaart op het waternet, maar het is waarschijnlijk
-                        niet gezond voor je.</p>
+                    @if($answer->explanation)
+                        <p class="text-base leading-relaxed text-white">{{ $answer->explanation->description }}</p>
+                        <p class="text-base leading-relaxed text-white">{{ $answer->explanation->conclusion }}</p>
+                    @endif
                 </div>
 
                 <h2 class="text-3xl font-bold leading-tight text-white">Opnieuw proberen?</h2>
