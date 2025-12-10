@@ -19,7 +19,7 @@
                             <p class="w-full lg:w-1/2 p-6 text-lg">
 
                                 {{ $fact->scenario }}
-                                
+
                             </p>
                         </div>
                         <div
