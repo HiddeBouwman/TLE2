@@ -1,6 +1,7 @@
 @vite('resources/js/landingpage.js')
 <x-app-layout>
     <x-slot>
+
         {{--
          to do:
          voor screenreader de fact automatisch laten zien.
@@ -76,39 +77,57 @@
             </div>
         </section>
         <section class="flex justify-center content-center items-center">
-            <div
-                class="bg-background w-full lg:w-1/2 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
-                <ol class="flex justify-between items-start relative z-10">
-                    @foreach([13,14,15,16,17,18,19] as $day)
+            @php
+                $user = auth()->user();
+                $streak = $user->streak_counter ?? 0;
+
+                $startDay = max(1, $streak - 3);
+                $endDay = $startDay + 6;
+
+                $rewardDays = [3, 7, 15, 18, 25, 30];
+            @endphp
+            <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8">
+
+                <div class="inset-x-0 z-0 px-2">
+                    <div class="flex justify-between items-center">
+                        @foreach(range($startDay, $endDay - 1) as $day)
+                            @php
+                                $lineColor = $day < $streak ? 'bg-emerald-500' : 'bg-red-600';
+                            @endphp
+
+                            <div class="flex-1 mx-1 h-1 transition-all duration-500 {{ $lineColor }} "></div>
+                        @endforeach
+                    </div>
+                </div>
+
+
+                <ol class="flex justify-between items-start z-10 px-2">
+                    @foreach(range($startDay, $endDay) as $day)
                         @php
-                            $isRed = in_array($day, [17,18,19]);
-                            $bg = $isRed ? 'bg-red-700' : 'bg-emerald-500';
+                            $bg = $day <= $streak ? 'bg-emerald-500' : 'bg-red-700';
                         @endphp
                         <li class="flex flex-col items-center text-center w-12">
                             <div
-                                class="{{ $bg }} text-white rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg">
+                                class="{{ $bg }} text-white rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg -mt-6">
                                 <span class="font-semibold">{{ $day }}</span>
                             </div>
-                            @if(in_array($day, [13, 14, 15, 16]))
+                            @if($day <= $streak)
                                 <img src="{{ Vite::asset('resources/images/roos.png') }}"
-                                     alt="op deze afbeelding is een rode roos te zien"
-                                     class="mt-3 h-12 w-auto">
-                            @endif
-                            @if(in_array($day, [17, 18, 19]))
+                                     alt="" class="mt-3 h-12 w-auto">
+                            @else
                                 <img src="{{ Vite::asset('resources/images/verwelkteroos.png') }}"
-                                     alt="op deze afbeelding is een verwelkte rode roos te zien"
-                                     class="mt-3 h-12 w-auto">
+                                     alt="" class="mt-3 h-12 w-auto">
                             @endif
-                            <!-- small gift icon under day 15 and 18 -->
-                            @if(in_array($day, [15,18]))
+
+                            @if(in_array($day, $rewardDays))
                                 <img src="{{ Vite::asset('resources/images/gift.png') }}"
-                                     alt="op deze afbeelding is een cadeau te zien"
-                                     class="mt-2 h-6 w-auto">
+                                     alt="" class="mt-2 h-6 w-auto">
                             @endif
                         </li>
                     @endforeach
                 </ol>
             </div>
+
         </section>
     </x-slot>
 </x-app-layout>
