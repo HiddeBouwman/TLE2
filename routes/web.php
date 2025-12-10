@@ -3,6 +3,7 @@
 use App\Http\Controllers\CorrectAnswerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\StatsController;
 use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
@@ -15,6 +16,7 @@ Route::get('/feitje', function () {
     return view('dashboard');
 })->name('feitje');
 
+Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
