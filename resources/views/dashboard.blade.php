@@ -23,11 +23,9 @@ $id = $streak + 1;
             <div class="flex justify-center">
                 <div
                     class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md cursor-pointer">
-                    <h2 class="text-center text-3xl font-bold">De vliegenzwam</h2>
+                    <h2 class="text-center text-3xl font-bold">{{$fact->name}}</h2>
                     <p class="text-center text-2xl">
-                        De Vliegenzwam is een paddenstoel wat een symbiotische relatie heeft met bomen, de Vliegzwam
-                        helpt met meer mineralen naar de boom te transporteren, waar de paddenstoel krijgt daarvoor
-                        suikers van de boom.
+                       {{$fact->description}}
                     </p>
                 </div>
             </div>

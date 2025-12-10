@@ -1,3 +1,8 @@
+<?php
+$user = auth()->user();
+$streak = $user->streak_counter ?? 0;
+$id = $streak + 1;
+?>
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -6,8 +11,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex ">
-                    <x-nav-link :href="route('feitje')" :active="request()->routeIs('feitje')">
+                    <x-nav-link :href="route('feitje',['id' => $id])" :active="request()->routeIs('feitje')">
                         {{ __('Feitje') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex ">
+                    <x-nav-link :href="route('stats.index')">
+                        {{ __('Statistieken') }}
                     </x-nav-link>
                 </div>
             </div>

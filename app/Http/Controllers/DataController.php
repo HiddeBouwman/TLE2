@@ -3,19 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Fact;
 use App\Models\Task;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
     //
-    public function index()
+    public function index($id)
     {
-        $users = User::all();
-        $tasks = Task::all();
-        $answers = Answer::all();
-        return view('data.show',compact('users', 'tasks', 'answers'));
+        if (!is_numeric($id)) {
+            return redirect()->route('fallback');
+        }
+
+        try {
+            $task = Task::with(['answers', 'facts'])->findOrFail($id);
+            $fact = $task->facts->first();
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('fallback');
+        }
+
+        return view('dashboard', compact('task', 'fact'));
     }
 
     public function show($id)
