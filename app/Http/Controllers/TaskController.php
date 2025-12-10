@@ -58,6 +58,10 @@ class TaskController extends Controller
             'option' => $validated['option'] ?? null,
         ]);
 
+        $user = User::where('id', Auth::id())
+            ->first();
+        $user->streak_counter += 1;
+        $user->save();
         return response()->json([
             'success' => true,
             'path' => Storage::url($filename),
