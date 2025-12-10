@@ -36,7 +36,6 @@ Route::middleware('auth')->group(function () {
     Route::get('juist-antwoord/{id}', [CorrectAnswerController::class, 'show'])->name('juist-antwoord');
     Route::get('fout-antwoord/{id}', [WrongAnswerController::class, 'show'])->name('fout-antwoord');
 
-    Route::get('/daily-task', [TaskController::class, 'show'])->name('daily-task');
 
     Route::get('/dagelijkse-taak', [TaskController::class, 'show'])->name('daily-task');
 
