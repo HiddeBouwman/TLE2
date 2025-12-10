@@ -1,9 +1,4 @@
 @vite('resources/js/landingpage.js')
-<?php
-$user = auth()->user();
-$streak = $user->streak_counter ?? 0;
-$id = $streak + 1;
-?>
 <x-app-layout>
     <x-slot>
         {{--
