@@ -3,9 +3,12 @@ let cameraStream = null;
 let openCamera = null;
 let closeCamera = null;
 let saveButton;
+let taskId = window.taskId;
+
 
 function init() {
-
+ 
+    console.log(taskId)
     openCamera = document.getElementById('openCamera')
     openCamera.addEventListener('click', OpenCamera)
 
@@ -78,9 +81,10 @@ function hideCameraButton(nameHidden, nameShowing) {
 function saveImage() {
     const canvas = document.getElementById("canvas");
     const dataUrl = canvas.toDataURL("image/png");
-
+    console.log(taskId)
     const formData = new FormData();
     formData.append("image_base64", dataUrl);
+    formData.append("task_id", taskId);
 
     fetch(window.savePhotoUrl, {
         method: "POST",
@@ -90,10 +94,6 @@ function saveImage() {
         }
     })
         .then(response => response.json())
-        .then(data => {
-            console.log("Image saved:", data);
-            alert("Image saved successfully!");
-        })
         .catch(error => console.error("Upload error:", error));
 }
 

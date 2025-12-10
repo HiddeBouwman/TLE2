@@ -3,6 +3,7 @@
 <x-app-layout>
     <script>
         window.savePhotoUrl = "{{ route('save-photo') }}";
+        window.taskId = @json($task->id);
     </script>
 
     <div class="max-w-full md:max-w-7xl bg-background md:p-10">
@@ -14,14 +15,11 @@
                     <div class="w-11/12 md:w-full">
                         <div class="bg-gradient-lap rounded-md shadow-md w-9/10">
                             <h2 class="sr-only">Inleiding</h2>
+
                             <p class="w-full lg:w-1/2 p-6 text-lg">
-                                In een <strong>dystopische toekomst</strong> zou het verdwijnen van de vliegenzwam laten
-                                zien
-                                hoe
-                                hard onze natuur instort. Bossen die ooit vol kleur en leven waren, worden aan saaie,
-                                kwetsbare plekken. Het is niet alleen een ecologisch verlies, maar ook iets dat de
-                                wereld
-                                minder bijzonder en minder leefbaar maakt.
+
+                                {{ $fact->scenario }}
+                                
                             </p>
                         </div>
                         <div
@@ -38,7 +36,7 @@
                     <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left">
                         Nu de taak…
                     </h2>
-                    <p class="inline-block text-lg py-3">{{ $task }}</p>
+                    <p class="inline-block text-lg py-3">{{$task->assignment}}</p>
                 </div>
                 <div class="text-text-dark text-lg">
                     <button id="openCamera">Camera openen</button>
