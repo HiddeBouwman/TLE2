@@ -11,9 +11,9 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/feitje', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('feitje');
 
 
 Route::middleware('auth')->group(function () {
