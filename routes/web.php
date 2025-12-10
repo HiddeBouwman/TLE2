@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/daily-task', [TaskController::class, 'show'])->name('daily-task');
 
+    Route::get('/dagelijkse-taak', [TaskController::class, 'show'])->name('daily-task');
+
     Route::post('/save-photo', [TaskController::class, 'store'])->name('save-photo');
 
     Route::get('/reeks-overzicht', function () {
