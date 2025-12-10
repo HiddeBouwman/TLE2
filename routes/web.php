@@ -26,7 +26,7 @@ Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('d
 
 Route::get('/daily-task', [TaskController::class, 'show'])->name('daily-task');
 
-Route::post('/save-photo', [TaskController::class, 'store'])->name('save-photo');
+Route::post('/save-photo', [TaskController::class, 'store'])->name('save-photo')->middleware('auth');
 
 
 Route::middleware('auth')->group(function () {

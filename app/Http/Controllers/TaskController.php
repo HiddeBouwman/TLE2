@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Fact;
 use App\Models\Task;
+use App\Models\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,12 +19,18 @@ class TaskController extends Controller
     //
     public function show()
     {
-        $task = Task::where('id', 1)->first();
 
+        $user = User::where('id', Auth::id())
+            ->first();
+        $streak = $user->streak_counter ?? 0;
+
+
+        $task = Task::where('id', $streak)->first();
         if ($task) {
             $fact = Fact::where('task_id', $task->id)->first();
-
         }
+
+
         return view('daily-task', compact('fact', 'task'));
 
     }
