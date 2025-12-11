@@ -17,6 +17,10 @@
         background-color: var(--color-accent);
     }
 
+    .bg-background {
+        background-color: var(--color-background);
+    }
+
     .bg-gradient-lap {
         background: linear-gradient(to bottom, var(--color-secondary), var(--color-accent));
     }
@@ -69,10 +73,179 @@
         border: 2px solid var(--button-primary-focus-border);
         outline: 2px solid var(--button-primary-focus-outline);
     }
+
+    .btn-secondary {
+        background-color: var(--button-secondary-bg);
+        color: var(--button-secondary-text);
+        border: 2px solid var(--button-secondary-border);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--button-secondary-hover-bg);
+        color: var(--button-secondary-hover-text);
+        border: 2px solid var(--button-secondary-hover-border);
+    }
+
+    .btn-secondary:active {
+        background-color: var(--button-secondary-active-bg);
+        color: var(--button-secondary-active-text);
+        border: 2px solid var(--button-secondary-active-border);
+    }
+
+    .btn-secondary:disabled {
+        background-color: var(--button-secondary-inactive-bg);
+        color: var(--button-secondary-inactive-text);
+        border: 2px solid var(--button-secondary-inactive-border);
+    }
+
+    .btn-secondary:disabled:hover {
+        background-color: var(--button-secondary-inactive-bg);
+        color: var(--button-secondary-inactive-text);
+        border: 2px solid var(--button-secondary-inactive-border);
+    }
+
+    .btn-secondary:focus-visible {
+        background-color: var(--button-secondary-focus-bg);
+        color: var(--button-secondary-focus-text);
+        border: 2px solid var(--button-secondary-focus-border);
+        outline: 2px solid var(--button-secondary-focus-outline);
+    }
+
+    .btn-tertiary {
+        background-color: var(--button-tertiary-bg);
+        color: var(--button-tertiary-text);
+        border: 2px solid var(--button-tertiary-border);
+    }
+
+    .btn-tertiary:hover {
+        background-color: var(--button-tertiary-hover-bg);
+        color: var(--button-tertiary-hover-text);
+        border: 2px solid var(--button-tertiary-hover-border);
+    }
+
+    .btn-tertiary:active {
+        background-color: var(--button-tertiary-active-bg);
+        color: var(--button-tertiary-active-text);
+        border: 2px solid var(--button-tertiary-active-border);
+    }
+
+    .btn-tertiary:disabled {
+        background-color: var(--button-tertiary-inactive-bg);
+        color: var(--button-tertiary-inactive-text);
+        border: 2px solid var(--button-tertiary-inactive-border);
+    }
+
+    .btn-tertiary:disabled:hover {
+        background-color: var(--button-tertiary-inactive-bg);
+        color: var(--button-tertiary-inactive-text);
+        border: 2px solid var(--button-tertiary-inactive-border);
+    }
+
+    .btn-tertiary:focus-visible {
+        background-color: var(--button-tertiary-focus-bg);
+        color: var(--button-tertiary-focus-text);
+        border: 2px solid var(--button-tertiary-focus-border);
+        outline: 2px solid var(--button-tertiary-focus-outline);
+    }
+
+    .btn-quaternary {
+        background-color: var(--button-quaternary-bg);
+        color: var(--button-quaternary-text);
+        border: 2px solid var(--button-quaternary-border);
+    }
+
+    .btn-quaternary:hover {
+        background-color: var(--button-quaternary-hover-bg);
+        color: var(--button-quaternary-hover-text);
+        border: 2px solid var(--button-quaternary-hover-border);
+    }
+
+    .btn-quaternary:active {
+        background-color: var(--button-quaternary-active-bg);
+        color: var(--button-quaternary-active-text);
+        border: 2px solid var(--button-quaternary-active-border);
+    }
+
+    .btn-quaternary:disabled {
+        background-color: var(--button-quaternary-inactive-bg);
+        color: var(--button-quaternary-inactive-text);
+        border: 2px solid var(--button-quaternary-inactive-border);
+    }
+
+    .btn-quaternary:disabled:hover {
+        background-color: var(--button-quaternary-inactive-bg);
+        color: var(--button-quaternary-inactive-text);
+        border: 2px solid var(--button-quaternary-inactive-border);
+    }
+
+    .btn-quaternary:focus-visible {
+        background-color: var(--button-quaternary-focus-bg);
+        color: var(--button-quaternary-focus-text);
+        border: 2px solid var(--button-quaternary-focus-border);
+        outline: 2px solid var(--button-quaternary-focus-outline);
+    }
+
+    .btn-quinary {
+        background-color: var(--button-quinary-bg);
+        color: var(--button-quinary-text);
+        border: 2px solid var(--button-quinary-border);
+    }
+
+    .btn-quinary:hover {
+        background-color: var(--button-quinary-hover-bg);
+        color: var(--button-quinary-hover-text);
+        border: 2px solid var(--button-quinary-hover-border);
+    }
+
+    .btn-quinary:active {
+        background-color: var(--button-quinary-active-bg);
+        color: var(--button-quinary-active-text);
+        border: 2px solid var(--button-quinary-active-border);
+    }
+
+    .btn-quinary:disabled {
+        background-color: var(--button-quinary-inactive-bg);
+        color: var(--button-quinary-inactive-text);
+        border: 2px solid var(--button-quinary-inactive-border);
+    }
+
+    .btn-quinary:disabled:hover {
+        background-color: var(--button-quinary-inactive-bg);
+        color: var(--button-quinary-inactive-text);
+        border: 2px solid var(--button-quinary-inactive-border);
+    }
+
+    .btn-quinary:focus-visible {
+        background-color: var(--button-quinary-focus-bg);
+        color: var(--button-quinary-focus-text);
+        border: 2px solid var(--button-quinary-focus-border);
+        outline: 2px solid var(--button-quinary-focus-outline);
+    }
 }
 
 .btn-primary:disabled svg {
     transform: none !important;
+    cursor: not-allowed;
+}
+
+.btn-secondary:disabled svg {
+    transform: none !important;
+    cursor: not-allowed;
+}
+
+.btn-tertiary:disabled svg {
+    transform: none !important;
+    cursor: not-allowed;
+}
+
+.btn-quaternary:disabled svg {
+    transform: none !important;
+    cursor: not-allowed;
+}
+
+.btn-quinary:disabled svg {
+    transform: none !important;
+    cursor: not-allowed;
 }
 
 @media (max-width: 768px) {

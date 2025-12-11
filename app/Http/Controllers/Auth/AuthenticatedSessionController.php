@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+$user = auth()->user();
+$streak = $user->streak_counter ?? 0;
+$id = $streak + 1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
@@ -28,7 +30,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        $user = auth()->user();
+        $streak = $user->streak_counter ?? 0;
+        $id = $streak + 1;
+
+        return redirect()->intended(route('feitje',['id' => $id], absolute: false));
     }
 
     /**

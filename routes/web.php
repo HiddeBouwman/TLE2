@@ -3,35 +3,52 @@
 use App\Http\Controllers\CorrectAnswerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\StatsController;
 use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
+
+Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
 
 Route::get('/', function () {
-    return view('dashboard');
-});
-
-Route::get('correctAnswer', [CorrectAnswerController::class, 'index'])->name('correctAnswer');
-Route::get('wrongAnswer', [WrongAnswerController::class, 'index'])->name('wrongAnswer');
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::get('/daily-question', [QuestionController::class, 'show'])->name('daily-question');
-
-Route::post('/daily-question', [QuestionController::class, 'submit'])->name('daily-question.submit');
-
+    return view('introductie');
+})->name('introductie');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
+    Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
+    Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
+
+    Route::get('/feitje/{id}', [\App\Http\Controllers\DataController::class,'index'])->name('feitje');
+
+    Route::get('/dagelijkse-vraag', function () {
+        $user = auth()->user();
+        $streak = $user->streak_counter ?? 0;
+        $id = $streak + 1;
+        return redirect()->route('dagelijkse-vraag', ['id' => $id]);
+    });
+
+    Route::get('/dagelijkse-vraag/{id}', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
+
+    Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('dagelijkse-vraag.submit');
+    Route::get('juist-antwoord/{id}', [CorrectAnswerController::class, 'show'])->name('juist-antwoord');
+    Route::get('fout-antwoord/{id}', [WrongAnswerController::class, 'show'])->name('fout-antwoord');
+
+
+    Route::get('/dagelijkse-taak', [TaskController::class, 'show'])->name('daily-task');
+
+    Route::post('/save-photo', [TaskController::class, 'store'])->name('save-photo');
+
+    Route::get('/reeks-overzicht', function () {
+        return view('streakOverview');
+    })->name('reeks-overzicht');
 });
 
-Route::get('/streakoverzicht', function () {
-    return view('streakOverview');
-})->name('streakoverzicht');
+Route::get('data/show', [\App\Http\Controllers\DataController::class, 'index']);
+Route::get('answer/show/{id}', [\App\Http\Controllers\DataController::class, 'show']);
+Route::get('explanation/show/{id}', [\App\Http\Controllers\DataController::class, 'explanation']);
+Route::get('/fallback', function () {
+    return view('fallback');
+})->name('fallback');
 
-require __DIR__ . '/auth.php';
 require __DIR__ . '/auth.php';

@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -21,6 +23,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'streak_counter',
     ];
 
     /**
@@ -46,9 +50,15 @@ class User extends Authenticatable
         ];
     }
 
-    public function tasks(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function tasks(): BelongsToMany
     {
-        return $this->belongsToMany(Task::class);
+        return $this->belongsToMany(Task::class)
+            ->withPivot('date');
+    }
+
+    public function rewards(): BelongsToMany
+    {
+        return $this->belongsToMany(Reward::class);
     }
 
 }

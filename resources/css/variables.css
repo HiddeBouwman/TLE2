@@ -39,6 +39,96 @@
     --button-primary-focus-outline: #E2006A;
 
 
+    /* secondary button */
+    --button-secondary-bg: #FFF;
+    --button-secondary-text: #E2006A;
+    --button-secondary-border: #E2006A;
+
+    --button-secondary-hover-bg: #FCEDF4;
+    --button-secondary-hover-text: #EB589D;
+    --button-secondary-hover-border: #EB589D;
+
+    --button-secondary-active-bg: #FCEDF4;
+    --button-secondary-active-text: #EB589D;
+    --button-secondary-active-border: #EB589D;
+
+    --button-secondary-inactive-bg: #E6E6E6;
+    --button-secondary-inactive-text: #000;
+    --button-secondary-inactive-border: #BA97A7;
+
+    --button-secondary-focus-bg: #FCEDF4;
+    --button-secondary-focus-text: #E2006A;
+    --button-secondary-focus-border: #FCEDF4;
+    --button-secondary-focus-outline: #E2006A;
+
+
+    /* tertiary button */
+    --button-tertiary-bg: #1E5E51;
+    --button-tertiary-text: #FFF;
+    --button-tertiary-border: #1E5E51;
+
+    --button-tertiary-hover-bg: #319E88;
+    --button-tertiary-hover-text: #000;
+    --button-tertiary-hover-border: #319E88;
+
+    --button-tertiary-active-bg: #1E5E51;
+    --button-tertiary-active-text: #FFF;
+    --button-tertiary-active-border: #1E5E51;
+
+    --button-tertiary-inactive-bg: #5C706C;
+    --button-tertiary-inactive-text: #FFF;
+    --button-tertiary-inactive-border: #5C706C;
+
+    --button-tertiary-focus-bg: #1E5E51;
+    --button-tertiary-focus-text: #FFF;
+    --button-tertiary-focus-border: #1E5E51;
+    --button-tertiary-focus-outline: #FFF;
+
+
+    /* quaternary button */
+    --button-quaternary-bg: #FFF;
+    --button-quaternary-text: #333;
+    --button-quaternary-border: #FFF;
+
+    --button-quaternary-hover-bg: #FFF;
+    --button-quaternary-hover-text: #333;
+    --button-quaternary-hover-border: #FFF;
+
+    --button-quaternary-active-bg: #FFF;
+    --button-quaternary-active-text: #333;
+    --button-quaternary-active-border: #FFF;
+
+    --button-quaternary-inactive-bg: #E6E6E6;
+    --button-quaternary-inactive-text: #000;
+    --button-quaternary-inactive-border: #E6E6E6;
+
+    --button-quaternary-focus-bg: #FFF;
+    --button-quaternary-focus-text: #333;
+    --button-quaternary-focus-border: #FFF;
+    --button-quaternary-focus-outline: #FFF;
+
+
+    /* quinary button */
+    --button-quinary-bg: #EBF9FD;
+    --button-quinary-text: #000;
+    --button-quinary-border: #FFF;
+
+    --button-quinary-hover-bg: #FFF;
+    --button-quinary-hover-text: #333;
+    --button-quinary-hover-border: #FFF;
+
+    --button-quinary-active-bg: #EBF9FD;
+    --button-quinary-active-text: #000;
+    --button-quinary-active-border: #FFF;
+
+    --button-quinary-inactive-bg: #D8DDDF;
+    --button-quinary-inactive-text: #000;
+    --button-quinary-inactive-border: #D8DDDF;
+
+    --button-quinary-focus-bg: #FFF;
+    --button-quinary-focus-text: #333;
+    --button-quinary-focus-border: #FFF;
+    --button-quinary-focus-outline: #FFF;
 
 
 

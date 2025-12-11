@@ -2,33 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
+use App\Models\Task;
+use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController
 {
-    public function show()
+    public function show($id)
     {
-        $question = [
-            'text' => 'Welke kleine gewoonte helpt indirect mee aan het behoud van soorten zoals de vliegenzwam?',
-            'options' => [
-                'A' => 'Kiezen voor biologische producten wanneer mogelijk.',
-                'B' => 'Regenwater drinken in plaats van kraanwater.',
-                'C' => 'Elke dag een uur wandelen in de natuur.',
-                'D' => 'Nooit foto’s maken van paddenstoelen.',
-            ],
-            'correct' => 'A'
-        ];
+        if (!is_numeric($id)) {
+            return redirect()->route('fallback');
+        }
 
-        return view('daily-question', compact('question'));
+        try {
+            $task = Task::with(['answers', 'facts'])->findOrFail($id);
+            $fact = $task->facts->first();
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('fallback');
+        }
+
+        return view('daily-question', compact('task', 'fact'));
     }
 
     public function submit(Request $request)
     {
-        $answer = $request->input('answer');
-        if ($answer == 'A') {
-            return redirect()->route('correctAnswer');
+        $answerId = $request->input('answer');
+        $answer = Answer::find($answerId);
+
+        if ($answer && $answer->correct_option == 1) {
+            $user = User::where('id', Auth::id())
+                ->first();
+            $user->streak_counter += 1;
+            $user->save();
+            return redirect()->route('juist-antwoord', ['id' => $answerId]);
         } else {
-            return redirect()->route('wrongAnswer');
+            return redirect()->route('fout-antwoord', ['id' => $answerId]);
+
         }
     }
 }
