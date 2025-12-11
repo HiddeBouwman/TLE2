@@ -14,7 +14,7 @@ $id = $streak + 1;
             <div class="lg:w-1/2">
                 <img
                     class="w-full h-full object-cover"
-                    src="{{ Vite::asset('resources/img/dystopie.png') }}"
+                    src="{{asset($answer->image)}}"
                     alt="somber toekomstbeeld zonder paddenstoelen">
             </div>
 

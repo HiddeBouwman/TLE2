@@ -36,9 +36,8 @@ $id = $streak + 1;
 
                 <img
                     class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
-                    src="{{ Vite::asset('resources/images/vliegenzwam.webp') }}"
-                    alt="Foto van de vliegenzwam">
-
+                    src="{{asset($fact->image)}}"
+                    alt="Foto van de feitje">
             </div>
         </section>
 
