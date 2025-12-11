@@ -8,8 +8,8 @@
             <div class="w-11/12 md:w-full flex flex-col justify-center items-center md:items-start">
                 <div
                     class="w-full md:absolute md:right-0 md:top-0 md:w-1/2 md:h-full overflow-hidden rounded-md shadow-md">
-                    <img src="{{ Vite::asset('resources/img/dystopie.png') }}"
-                         alt="Een afbeelding van een bos met paddenstoelen, symboliserend de natuur die instort in een dystopische toekomst."
+                    <img src="{{asset($answer->image)}}"
+                         alt="Hier moet dynamisch gegenereerde alt tekst in."
                          class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
                 </div>
                 <div class="bg-gradient-lap rounded-b-md md:rounded-md shadow-md w-11/12 md:w-full">
@@ -17,6 +17,7 @@
                     <p class="w-full md:w-1/2 px-6 text-xl font-bold">{{ $answer->option }}</p>
                     @if($answer->explanation)
                         <p class="w-full md:w-1/2 p-6 pt-0 text-lg">{{ $answer->explanation->description }}</p>
+                        <p class="w-full md:w-1/2 p-6 pt-0 text-lg">{{ $answer->explanation->conclusion }}</p>
                     @endif
                 </div>
                 <a href="{{ route('reeks-overzicht') }}"

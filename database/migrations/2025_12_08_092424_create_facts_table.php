@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('scenario');
+            $table->string('image')->nullable();
+            $table->string('image_scenario')->nullable();
             $table->foreignId('task_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

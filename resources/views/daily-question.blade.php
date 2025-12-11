@@ -1,3 +1,8 @@
+<?php
+$user = auth()->user();
+$streak = $user->streak_counter ?? 0;
+$id = $streak + 1;
+?>
 <x-app-layout>
     <div class="w-full flex justify-center py-10">
 
@@ -15,9 +20,10 @@
                     </div>
                     <div
                         class="w-full md:absolute md:right-0 md:top-0 md:w-1/2 md:h-full overflow-hidden rounded-md shadow-md">
-                        <img src="{{ Vite::asset('resources/img/dystopie.png') }}"
-                             alt="Een afbeelding van een bos met paddenstoelen, symboliserend de natuur die instort in een dystopische toekomst."
-                             class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
+                        <img
+                            class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
+                            src="{{asset($fact->image_scenario)}}"
+                            alt="Foto van de feitje">
                     </div>
                 </div>
             </div>
@@ -60,7 +66,7 @@
             </section>
             <div class="flex justify-center items-center md:justify-start">
                 <a class="group flex justify-center items-center gap-2 mt-4 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out"
-                   href="{{ route('feitje') }}">
+                   href="{{ route('feitje', ['id' => $id]) }}">
                     <svg
                         class="w-4 h-4 block fill-current group-hover:-translate-x-1 transition-transform ease-in-out duration-500 scale-x-[-1]"
                         aria-hidden="true">

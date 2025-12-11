@@ -10,18 +10,16 @@ use App\Http\Controllers\TaskController;
 
 Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
 
+Route::get('/', function () {
+    return view('introductie');
+})->name('introductie');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
     Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
-    Route::get('/', function () {
-        return view('dashboard');
-    });
-
-    Route::get('/feitje', function () {
-        return view('dashboard');
-    })->name('feitje');
+    Route::get('/feitje/{id}', [\App\Http\Controllers\DataController::class,'index'])->name('feitje');
 
     Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 

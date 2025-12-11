@@ -39,9 +39,8 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
                 class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer">
                 <img
                     class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
-                    src="{{ Vite::asset('resources/images/vliegenzwam.webp') }}"
-                    alt="Foto van de vliegenzwam">
-
+                    src="{{asset($fact->image)}}"
+                    alt="Foto van de feitje">
             </div>
         </section>
 
