@@ -17,7 +17,7 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
             <div
                 id="info" class=" bg-primary w-5/6 lg:w-1/2 mt-10 cursor-pointer">
                 <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl font-extrabold">
-                    {{ __('Klik voor het feit van de dag!') }}
+                    {{ __('Klik hier voor het feit van de dag!') }}
                 </h1>
             </div>
         </section>
@@ -91,7 +91,7 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
                 </div>
             </div>
         </section>
-        <section class="flex justify-center content-center items-center">
+        <section id="streak" class="flex justify-center content-center items-center">
             @php
                 $user = auth()->user();
                 $streak = $user->streak_counter ?? 0;
@@ -101,46 +101,60 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
 
                 $rewardDays = [3, 7, 15, 18, 25, 30];
             @endphp
-            <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8 relative">
-
-                <div class="absolute top-[78px] left-0 right-0 px-8 z-0">
-                    <div class="h-1 bg-gray-800 w-full"></div>
-                    @php
-                        $totalDays = $endDay - $startDay;
-                        $progressPercentage = $totalDays > 0 ? (($streak - $startDay) / $totalDays) * 100 : 0;
-                        $progressPercentage = max(0, min($progressPercentage, 100));
-                    @endphp
-                    <div class="absolute top-0 left-0 h-1 bg-emerald-500" style="width: {{ $progressPercentage }}%;"></div>
-                </div>
-
+            <div class="max-w-7xl mx-auto px-4 py-8 relative">
                 <ol class="flex justify-between items-start z-10 px-2 relative">
                     @foreach(range($startDay, $endDay) as $day)
                         @php
-                            $bg = $day <= $streak ? 'bg-emerald-500' : 'bg-gray-800';
+                            if ($day <= $streak) {
+                                $bg = 'bg-emerald-500';
+                                $txt = 'text-black';
+                                $border = 'border-black';
+                            } elseif ($day == $streak + 1) {
+                                $bg = 'bg-gift-orange';
+                                $txt = 'text-black';
+                                $border = 'border-black';
+                            } else {
+                                $bg = 'bg-gray-800';
+                                $txt = 'text-white';
+                                $border = 'border-white';
+                            }
                         @endphp
                         <li class="flex flex-col items-center text-center w-12">
                             <div class="h-6 mb-1">
                                 @if(in_array($day, $rewardDays))
-                                    <img src="{{ Vite::asset('resources/images/gift.png') }}"
+                                    <img src="{{ asset('/images/gift.png') }}"
                                          alt="Cadeau icoon" class="h-6 w-auto">
                                 @endif
                             </div>
                             <div
-                                class="{{ $bg }} text-black rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg">
+                                class="{{ $bg }} {{ $txt }} rounded-full w-10 h-10 flex items-center justify-center border-2 {{ $border }} shadow-lg">
                                 <span class="font-semibold">{{ $day }}</span>
                             </div>
                             @if($day <= $streak)
-                                <img src="{{ Vite::asset('resources/images/roos.png') }}"
+                                <img src="{{ asset('images/roos.png') }}"
                                      alt="Icoon van een roos" class="mt-3 h-12 w-auto">
                             @else
-                                <img src="{{ Vite::asset('resources/images/verwelkteroos.png') }}"
+                                <img src="{{ asset('images/verwelkteroos.png') }}"
                                      alt="Icoon van een verwelkte roos" class="mt-3 h-12 w-auto">
                             @endif
                         </li>
                     @endforeach
                 </ol>
+                <div class="absolute top-[78px] left-0 right-0 px-8 z-0">
+                    <div class="h-1 bg-gray-800 w-full"></div>
+                    @php
+                        $totalDays = $endDay - $startDay;
+                        if ($totalDays > 0) {
+                            $completedSegments = max(0, $streak);
+                            $progressFraction = $completedSegments / $totalDays;
+                        } else {
+                            $progressFraction = 0;
+                        }
+                        $progressPercentage = min($progressFraction * 100, 60);
+                    @endphp
+                    <div class="absolute top-0 left-0 h-1 bg-emerald-500" style="width: calc({{ $progressPercentage }}% - {{ $progressPercentage > 0 ? '3rem' : '0px' }}); margin-left: 4rem;"></div>
+                </div>
             </div>
-
         </section>
     </x-slot>
 </x-app-layout>
