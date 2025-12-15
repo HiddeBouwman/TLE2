@@ -45,10 +45,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        $user = auth()->user();
-        $streak = $user->streak_counter ?? 0;
-        $id = $streak + 1;
-
-        return redirect(route('feitje', ['id' => $id], absolute: false));
+        return redirect(route('feitje', [], absolute: false));
     }
 }

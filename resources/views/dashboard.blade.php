@@ -101,42 +101,40 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
 
                 $rewardDays = [3, 7, 15, 18, 25, 30];
             @endphp
-            <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8 relative">
 
-                <div class="inset-x-0 z-0 px-2">
-                    <div class="flex justify-between items-center">
-                        @foreach(range($startDay, $endDay - 1) as $day)
-                            @php
-                                $lineColor = $day < $streak ? 'bg-emerald-500' : 'bg-gray-800';
-                            @endphp
-
-                            <div class="flex-1 mx-1 h-1 transition-all duration-500 {{ $lineColor }} "></div>
-                        @endforeach
-                    </div>
+                <div class="absolute top-[78px] left-0 right-0 px-8 z-0">
+                    <div class="h-1 bg-gray-800 w-full"></div>
+                    @php
+                        $totalDays = $endDay - $startDay;
+                        $progressPercentage = $totalDays > 0 ? (($streak - $startDay) / $totalDays) * 100 : 0;
+                        $progressPercentage = max(0, min($progressPercentage, 100));
+                    @endphp
+                    <div class="absolute top-0 left-0 h-1 bg-emerald-500" style="width: {{ $progressPercentage }}%;"></div>
                 </div>
 
-
-                <ol class="flex justify-between items-start z-10 px-2">
+                <ol class="flex justify-between items-start z-10 px-2 relative">
                     @foreach(range($startDay, $endDay) as $day)
                         @php
                             $bg = $day <= $streak ? 'bg-emerald-500' : 'bg-gray-800';
                         @endphp
                         <li class="flex flex-col items-center text-center w-12">
+                            <div class="h-6 mb-1">
+                                @if(in_array($day, $rewardDays))
+                                    <img src="{{ Vite::asset('resources/images/gift.png') }}"
+                                         alt="Cadeau icoon" class="h-6 w-auto">
+                                @endif
+                            </div>
                             <div
-                                class="{{ $bg }} text-white rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg -mt-6">
+                                class="{{ $bg }} text-black rounded-full w-10 h-10 flex items-center justify-center border-2 border-white shadow-lg">
                                 <span class="font-semibold">{{ $day }}</span>
                             </div>
                             @if($day <= $streak)
                                 <img src="{{ Vite::asset('resources/images/roos.png') }}"
-                                     alt="" class="mt-3 h-12 w-auto">
+                                     alt="Icoon van een roos" class="mt-3 h-12 w-auto">
                             @else
                                 <img src="{{ Vite::asset('resources/images/verwelkteroos.png') }}"
-                                     alt="" class="mt-3 h-12 w-auto">
-                            @endif
-
-                            @if(in_array($day, $rewardDays))
-                                <img src="{{ Vite::asset('resources/images/gift.png') }}"
-                                     alt="" class="mt-2 h-6 w-auto">
+                                     alt="Icoon van een verwelkte roos" class="mt-3 h-12 w-auto">
                             @endif
                         </li>
                     @endforeach
