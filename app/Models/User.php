@@ -62,11 +62,6 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    public function stats(): BelongsTo
-    {
-        return $this->belongsTo(Stats::class);
-    }
-
 }
 
 

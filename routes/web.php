@@ -9,36 +9,26 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\RewardController;
 
+Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
+
 Route::get('/', function () {
     return view('dashboard');
-});
-
-Route::get('/feitje', function () {
-    return view('dashboard');
 })->name('feitje');
-
-Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
     Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
-    Route::get('/dagelijkse-vraag', function () {
-        $user = auth()->user();
-        $streak = $user->streak_counter ?? 0;
-        $id = $streak + 1;
-        return redirect()->route('dagelijkse-vraag', ['id' => $id]);
-    });
+    Route::get('/feitje', [\App\Http\Controllers\DataController::class,'index'])->name('feitje');
 
-    Route::get('/dagelijkse-vraag/{id}', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
+    Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
     Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('dagelijkse-vraag.submit');
+    Route::get('/antwoord', [\App\Http\Controllers\AnswerController::class, 'show'])->name('antwoord');
 
-    Route::get('juist-antwoord', [CorrectAnswerController::class, 'index'])->name('juist-antwoord');
-    Route::get('fout-antwoord', [WrongAnswerController::class, 'index'])->name('fout-antwoord');
 
-    Route::get('/daily-task', [TaskController::class, 'show'])->name('daily-task');
+    Route::get('/dagelijkse-taak', [TaskController::class, 'show'])->name('daily-task');
 
     Route::post('/save-photo', [TaskController::class, 'store'])->name('save-photo');
 

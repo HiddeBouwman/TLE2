@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class QuestionController
 {
-    public function show($id)
+    public function show()
     {
-        if (!is_numeric($id)) {
-            return redirect()->route('fallback');
-        }
+        $user = auth()->user();
+        $streak = $user->streak_counter ?? 0;
+        $id = $streak + 1;
 
         try {
             $task = Task::with(['answers', 'facts'])->findOrFail($id);
@@ -26,11 +30,20 @@ class QuestionController
 
     public function submit(Request $request)
     {
-        $correct_answer = $request->input('answer');
-        if ($correct_answer == 1) {
-            return redirect()->route('juist-antwoord');
-        } else if ($correct_answer == 0) {
-            return redirect()->route('fout-antwoord');
+        $answerId = $request->input('answer');
+        $answer = Answer::find($answerId);
+
+        if ($answer && $answer->correct_option == 1) {
+            $user = User::where('id', Auth::id())
+                ->first();
+            $user->streak_counter += 1;
+            $user->save();
         }
+
+        // Store answer ID in session
+        Session::put('answer_id', $answerId);
+        Session::put('image_scenario', $request->input('image_scenario'));
+
+        return redirect()->route('antwoord');
     }
 }

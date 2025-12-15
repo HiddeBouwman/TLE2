@@ -7,7 +7,7 @@ let taskId = window.taskId;
 
 
 function init() {
- 
+
     console.log(taskId)
     openCamera = document.getElementById('openCamera')
     openCamera.addEventListener('click', OpenCamera)
@@ -94,6 +94,11 @@ function saveImage() {
         }
     })
         .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = data.redirect;
+            }
+        })
         .catch(error => console.error("Upload error:", error));
 }
 

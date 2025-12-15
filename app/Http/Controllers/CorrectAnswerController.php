@@ -34,9 +34,10 @@ class CorrectAnswerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CorrectAnswer $correctAnswer)
+    public function show($id)
     {
-        //
+        $answer = \App\Models\Answer::with('explanation')->findOrFail($id);
+        return view('correctAnswer.index', compact('answer'));
     }
 
     /**

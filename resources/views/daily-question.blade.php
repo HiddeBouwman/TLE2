@@ -1,11 +1,5 @@
 <x-app-layout>
-    @foreach($task->facts as $fact)
-{{--        <p>{{ $fact->name }}</p>--}}
-{{--        <p>{{ $fact->description }}</p>--}}
-{{--        <p>{{ $fact->scenario }}</p>--}}
-    @endforeach
-
-    <div class="bg-background w-full flex justify-center py-10">
+    <div class="w-full flex justify-center py-10">
 
         <div class="max-w-full md:max-w-7xl md:p-10">
             <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left">Dagelijkse Uitdaging</h1>
@@ -21,14 +15,15 @@
                     </div>
                     <div
                         class="w-full md:absolute md:right-0 md:top-0 md:w-1/2 md:h-full overflow-hidden rounded-md shadow-md">
-                        <img src="{{ Vite::asset('resources/img/dystopie.png') }}"
-                             alt="Een afbeelding van een bos met paddenstoelen, symboliserend de natuur die instort in een dystopische toekomst."
-                             class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
+                        <img
+                            class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
+                            src="{{asset($fact->image_scenario)}}"
+                            alt="Foto van de feitje">
                     </div>
                 </div>
             </div>
 
-            <section class="p-2 md:p-6 mt-4 bg-white shadow-lg">
+            <section class="p-2 md:p-6 mx-4 mt-4 bg-white shadow-lg">
                 <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left">
                     Nu aan jou de vraag…
                     <p>{{ $task->question }}</p>
@@ -40,14 +35,14 @@
 
                 <form class="mt-8" action="{{ route('dagelijkse-vraag.submit') }}" method="post">
                     @csrf
+                    <input type="hidden" name="image_scenario" value="{{ $fact->image_scenario }}">
                     <fieldset>
                         <legend class="sr-only">Antwoordopties</legend>
                         <div class="text-text-dark text-lg">
                             @foreach($task->answers as $answer)
                                 <div class="mb-3">
-                                    <input type="radio" id="option" name="answer" value="{{ $answer->correct_option }}"
-                                           class="mr-2 cursor-pointer">
-                                    <label class="cursor-pointer" for="option"> {{ $answer->option }}</label>
+                                    <input type="radio" id="option-{{ $answer->id }}" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer">
+                                    <label class="cursor-pointer" for="option-{{ $answer->id }}">{{ $answer->option }}</label>
                                 </div>
                             @endforeach
                         </div>

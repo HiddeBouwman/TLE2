@@ -28,7 +28,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('feitje', absolute: false));
+        $user = auth()->user();
+        $streak = $user->streak_counter ?? 0;
+        $id = $streak + 1;
+
+        return redirect()->intended(route('feitje',['id' => $id], absolute: false));
     }
 
     /**
