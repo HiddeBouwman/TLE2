@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Fact;
@@ -20,19 +21,18 @@ class TaskController extends Controller
     public function show()
     {
 
-        $user = User::where('id', Auth::id())
-            ->first();
+        $user = auth()->user();
         $streak = $user->streak_counter ?? 0;
+        $id = $streak + 1;
 
-
-        $task = Task::where('id', $streak)->first();
-        if ($task) {
-            $fact = Fact::where('task_id', $task->id)->first();
+        try {
+            $task = Task::with(['answers', 'facts'])->findOrFail($id);
+            $fact = $task->facts->first();
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('fallback');
         }
 
-
         return view('daily-task', compact('fact', 'task'));
-
     }
 
 

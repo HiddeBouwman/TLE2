@@ -24,8 +24,11 @@ class QuestionController
         } catch (ModelNotFoundException $e) {
             return redirect()->route('fallback');
         }
+        if (is_null($task->assignment)){
+            return view('daily-question', compact('task', 'fact'));
+        }
 
-        return view('daily-question', compact('task', 'fact'));
+        return redirect()->route('daily-task');
     }
 
     public function submit(Request $request)
