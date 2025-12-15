@@ -3,12 +3,14 @@
 use App\Http\Controllers\CorrectAnswerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 
 Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
+Route::get('search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/', function () {
     return view('introductie');
@@ -19,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
-    Route::get('/feitje/{id}', [\App\Http\Controllers\DataController::class,'index'])->name('feitje');
+    Route::get('/feitje/{id}', [\App\Http\Controllers\DataController::class, 'index'])->name('feitje');
 
     Route::get('/dagelijkse-vraag', function () {
         $user = auth()->user();
