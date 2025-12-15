@@ -69,7 +69,8 @@
                                 }
                                 $progressPercentage = min($progressFraction * 100, 60);
                             @endphp
-                            <div class="absolute top-0 left-0 h-1 bg-emerald-500" style="width: calc({{ $progressPercentage }}% - {{ $progressPercentage > 0 ? '3rem' : '0px' }}); margin-left: 4rem;"></div>
+                            <div class="absolute top-0 left-0 h-1 bg-emerald-500"
+                                 style="width: calc({{ $progressPercentage }}% - {{ $progressPercentage > 0 ? '3rem' : '0px' }}); margin-left: 4rem;"></div>
                         </div>
                     </div>
 
@@ -92,7 +93,7 @@
                                 </div>
 
                                 <div class="w-48 flex-shrink-0">
-                                    <img src="{{ Vite::asset('resources/images/tuinieren.png') }}"
+                                    <img src="{{ asset('images/tuinieren.png') }}"
                                          alt="op deze afbeelding is een persoon te zien die aan het tuinieren is"
                                          class="w-full h-auto">
                                 </div>
@@ -150,8 +151,9 @@
 
                                     <li class="flex items-center gap-4">
                                         <img
-                                            src="{{ Vite::asset('resources/images/gift.png') }}"
+                                            src="{{ asset('images/gift.png') }}"
                                             class="h-9 w-auto p-1 rounded-md {{ $color }}"
+                                            alt="Icoon van een cadeau"
                                         >
 
                                         <div class="flex-1 font-semibold text-lg">
