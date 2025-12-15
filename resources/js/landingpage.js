@@ -7,11 +7,33 @@ function init() {
     let image = document.getElementById('fact-image')
     let button = document.getElementById('button')
     let text = document.getElementById('text')
-    let factDiv = document.querySelector('#fact .btn-quaternary') // dit moest ik toevoegen anders kon je bij het feitje nogsteeds ernaast klikken
+    let factDiv = document.querySelector('#fact .btn-quaternary')
 
+    // al deze dingen die je hieronder ziet staan is er voor de accessibility. Zonder dit kan je niet tabben naar de klik hier voor het feit van de dag knop en het plaatje.
     info.addEventListener("click", () => swapHidden(facts, image, button, text))
-    factDiv.addEventListener("click", () => hideFact(facts, image, button, text)) // veranderd van facts naar factdiv ivm wat hierboven staat
+    info.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            swapHidden(facts, image, button, text);
+        }
+    });
+
+    if (factDiv) {
+        factDiv.addEventListener("click", () => hideFact(facts, image, button, text))
+        factDiv.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                hideFact(facts, image, button, text);
+            }
+        });
+    }
     image.addEventListener("click", () => hideImage(facts, image, button, text))
+    image.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            hideImage(facts, image, button, text);
+        }
+    });
 
 }
 
