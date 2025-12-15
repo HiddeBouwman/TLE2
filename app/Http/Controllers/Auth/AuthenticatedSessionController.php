@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-$user = auth()->user();
-$streak = $user->streak_counter ?? 0;
-$id = $streak + 1;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;

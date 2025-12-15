@@ -13,28 +13,20 @@ Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
 Route::get('search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/', function () {
-    return view('introductie');
-})->name('introductie');
+    return view('dashboard');
+})->name('feitje');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
     Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
-    Route::get('/feitje/{id}', [\App\Http\Controllers\DataController::class, 'index'])->name('feitje');
+    Route::get('/feitje', [\App\Http\Controllers\DataController::class,'index'])->name('feitje');
 
-    Route::get('/dagelijkse-vraag', function () {
-        $user = auth()->user();
-        $streak = $user->streak_counter ?? 0;
-        $id = $streak + 1;
-        return redirect()->route('dagelijkse-vraag', ['id' => $id]);
-    });
-
-    Route::get('/dagelijkse-vraag/{id}', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
+    Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
     Route::post('/dagelijkse-vraag', [QuestionController::class, 'submit'])->name('dagelijkse-vraag.submit');
-    Route::get('juist-antwoord/{id}', [CorrectAnswerController::class, 'show'])->name('juist-antwoord');
-    Route::get('fout-antwoord/{id}', [WrongAnswerController::class, 'show'])->name('fout-antwoord');
+    Route::get('/antwoord', [\App\Http\Controllers\AnswerController::class, 'show'])->name('antwoord');
 
 
     Route::get('/dagelijkse-taak', [TaskController::class, 'show'])->name('daily-task');

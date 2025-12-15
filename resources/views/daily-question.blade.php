@@ -1,10 +1,5 @@
-<?php
-$user = auth()->user();
-$streak = $user->streak_counter ?? 0;
-$id = $streak + 1;
-?>
 <x-app-layout>
-    <div class="bg-background w-full flex justify-center py-10">
+    <div class="w-full flex justify-center py-10">
 
         <div class="max-w-full md:max-w-7xl md:p-10">
             <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left">Dagelijkse Uitdaging</h1>
@@ -28,7 +23,7 @@ $id = $streak + 1;
                 </div>
             </div>
 
-            <section class="p-2 md:p-6 mt-4 bg-white shadow-lg">
+            <section class="p-2 md:p-6 mx-4 mt-4 bg-white shadow-lg">
                 <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left">
                     Nu aan jou de vraag…
                     <p>{{ $task->question }}</p>
@@ -40,13 +35,14 @@ $id = $streak + 1;
 
                 <form class="mt-8" action="{{ route('dagelijkse-vraag.submit') }}" method="post">
                     @csrf
+                    <input type="hidden" name="image_scenario" value="{{ $fact->image_scenario }}">
                     <fieldset>
                         <legend class="sr-only">Antwoordopties</legend>
                         <div class="text-text-dark text-lg">
                             @foreach($task->answers as $answer)
                                 <div class="mb-3">
-                                    <input type="radio" id="option" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer">
-                                    <label class="cursor-pointer" for="option">{{ $answer->option }}</label>
+                                    <input type="radio" id="option-{{ $answer->id }}" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer">
+                                    <label class="cursor-pointer" for="option-{{ $answer->id }}">{{ $answer->option }}</label>
                                 </div>
                             @endforeach
                         </div>
@@ -66,7 +62,7 @@ $id = $streak + 1;
             </section>
             <div class="flex justify-center items-center md:justify-start">
                 <a class="group flex justify-center items-center gap-2 mt-4 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out"
-                   href="{{ route('feitje', ['id' => $id]) }}">
+                   href="{{ route('feitje') }}">
                     <svg
                         class="w-4 h-4 block fill-current group-hover:-translate-x-1 transition-transform ease-in-out duration-500 scale-x-[-1]"
                         aria-hidden="true">

@@ -7,9 +7,10 @@ function init() {
     let image = document.getElementById('fact-image')
     let button = document.getElementById('button')
     let text = document.getElementById('text')
+    let factDiv = document.querySelector('#fact .btn-quaternary') // dit moest ik toevoegen anders kon je bij het feitje nogsteeds ernaast klikken
 
     info.addEventListener("click", () => swapHidden(facts, image, button, text))
-    facts.addEventListener("click", () => hideFact(facts, image, button, text))
+    factDiv.addEventListener("click", () => hideFact(facts, image, button, text)) // veranderd van facts naar factdiv ivm wat hierboven staat
     image.addEventListener("click", () => hideImage(facts, image, button, text))
 
 }

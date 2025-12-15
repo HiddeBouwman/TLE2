@@ -12,14 +12,10 @@ use Illuminate\Http\Request;
 class DataController extends Controller
 {
     //
-    public function index($id)
+    public function index()
     {
-        if (!is_numeric($id)) {
-            return redirect()->route('fallback');
-        }
-
         try {
-            $task = Task::with(['answers', 'facts'])->findOrFail($id);
+            $task = Task::with(['answers', 'facts'])->inRandomOrder()->firstOrFail();
             $fact = $task->facts->first();
         } catch (ModelNotFoundException $e) {
             return redirect()->route('fallback');
