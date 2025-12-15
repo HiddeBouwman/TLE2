@@ -20,6 +20,10 @@ class TaskController extends Controller
     public function show()
     {
 
+
+        $today = date("Y-m-d");
+
+
         $user = User::where('id', Auth::id())
             ->first();
         $streak = $user->streak_counter ?? 0;
@@ -29,12 +33,24 @@ class TaskController extends Controller
         if ($task) {
             $fact = Fact::where('task_id', $task->id)->first();
         }
+        if ($task) {
+            foreach ($task->users as $userDate) {
+                $date = $userDate->pivot->date;
+                $date = date("Y-m-d", strtotime($date));
 
 
-        return view('daily-task', compact('fact', 'task'));
+                if ($date === $today) {
+                    return redirect()->route('reeks-overzicht');
+                }
+            }
+
+            return view('daily-task', compact('fact', 'task'));
+
+        } else {
+            return redirect()->route('fallback');
+        }
 
     }
-
 
     public function store(Request $request)
     {
@@ -56,6 +72,17 @@ class TaskController extends Controller
             'image' => $filename,
             'task_id' => $validated['task_id'],
             'option' => $validated['option'] ?? null,
+        ]);
+
+        $user = User::where('id', Auth::id())
+            ->first();
+
+        $streak = $user->streak_counter;
+
+        $task = Task::where('id', $streak)->first();
+
+        $user->tasks()->attach($task, [
+            'date' => date("Y-m-d"),
         ]);
 
         $user = User::where('id', Auth::id())

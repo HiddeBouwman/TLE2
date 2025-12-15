@@ -1,5 +1,8 @@
-@vite('resources/js/task.js')
+<?php
+$user = auth()->user();
 
+?>
+@vite('resources/js/task.js')
 <x-app-layout>
     <script>
         window.savePhotoUrl = "{{ route('save-photo') }}";
