@@ -11,8 +11,8 @@ use App\Http\Controllers\TaskController;
 Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
 
 Route::get('/', function () {
-    return view('introductie');
-})->name('introductie');
+    return view('dashboard');
+})->name('feitje');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profiel', [ProfileController::class, 'edit'])->name('profiel.edit');
