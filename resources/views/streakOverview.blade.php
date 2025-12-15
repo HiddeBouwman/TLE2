@@ -8,6 +8,10 @@
             $endDay = $startDay + 6;
 
             $rewardDays = [3, 7, 15, 18, 25, 30];
+
+            $claimedCount = $user->rewards
+                ->sortBy('pivot.created_at')
+                ->count();
         @endphp
         <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8">
             <div class="md:grid md:grid-cols-3 md:gap-8 items-start">
@@ -117,48 +121,53 @@
                                 <p>30-Er wordt een boom in jouw naam geplant door natuurmonumenten.</p>
                             </div>
 
-                            <ul class="space-y-4 mt-4">
-                                @foreach($rewardDays as $day)
 
+                            <ul class="space-y-4 mt-4">
+
+                                @foreach($rewardDays as $day)
                                     @php
-                                        $claimed = $streak > $day;
+                                        $rewardIndex = $loop->index;
+
                                         $available = $streak >= $day;
+                                        $claimed = $rewardIndex < $claimedCount;
 
                                         $color = $claimed
                                             ? 'bg-emerald-500'
                                             : ($available ? 'bg-gift-orange' : 'bg-gift-red');
                                     @endphp
 
-                                    <li class="flex items-center gap-4 opacity-90">
-                                        <img src="{{ Vite::asset('resources/images/gift.png') }}"
-                                             class="block h-9 w-auto p-1 {{ $color }} rounded-md">
+                                    <li class="flex items-center gap-4">
+                                        <img
+                                            src="{{ Vite::asset('resources/images/gift.png') }}"
+                                            class="h-9 w-auto p-1 rounded-md {{ $color }}"
+                                        >
 
-                                        <div class="flex-1">
-                                            <div class="font-semibold text-lg">Dag {{ $day }}</div>
+                                        <div class="flex-1 font-semibold text-lg">
+                                            Dag {{ $day }}
                                         </div>
 
                                         @if($claimed)
-                                            <div
-                                                class="bg-emerald-500 text-white px-4 py-1 rounded-full flex items-center gap-2">
+                                            <div class="bg-emerald-500 px-4 py-1 rounded-full">
                                                 <p>Geclaimed ✓</p>
                                             </div>
+
                                         @elseif($available)
-                                            <form method="POST" action="#">
+                                            <form method="POST" action="{{ route('rewards.claim') }}">
                                                 @csrf
                                                 <button
-                                                    class="bg-gift-orange text-white px-4 py-1 rounded-full font-semibold flex items-center gap-2 hover:bg-orange-600">
+                                                    class="bg-gift-orange px-4 py-1 rounded-full font-semibold hover:bg-orange-600">
                                                     Claim →
                                                 </button>
                                             </form>
+
                                         @else
-                                            <div
-                                                class="bg-gift-red text-white px-4 py-1 rounded-full flex items-center gap-2">
+                                            <div class="bg-gift-red px-4 py-1 rounded-full">
                                                 <p>Nog te behalen ✗</p>
                                             </div>
                                         @endif
                                     </li>
-
                                 @endforeach
+
                             </ul>
                         </div>
                     </div>

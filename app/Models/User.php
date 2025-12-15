@@ -58,7 +58,8 @@ class User extends Authenticatable
 
     public function rewards(): BelongsToMany
     {
-        return $this->belongsToMany(Reward::class);
+        return $this->belongsToMany(Reward::class)
+            ->withTimestamps();
     }
 
     public function stats(): BelongsTo

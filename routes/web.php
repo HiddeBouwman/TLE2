@@ -7,6 +7,7 @@ use App\Http\Controllers\StatsController;
 use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\RewardController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -44,6 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/reeks-overzicht', function () {
         return view('streakOverview');
     })->name('reeks-overzicht');
+    Route::post('/rewards/claim', [RewardController::class, 'claim'])
+        ->middleware('auth')
+        ->name('rewards.claim');
 });
 
 Route::get('data/show', [\App\Http\Controllers\DataController::class, 'index']);

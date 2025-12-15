@@ -8,10 +8,11 @@ class Reward extends Model
 {
     protected $fillable = [
         'description'
-        ];
+    ];
 
     public function users(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)
+            ->withTimestamps();
     }
 }
