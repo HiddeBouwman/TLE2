@@ -35,6 +35,7 @@
 
                 <form class="mt-8" action="{{ route('dagelijkse-vraag.submit') }}" method="post">
                     @csrf
+                    <input type="hidden" name="image_scenario" value="{{ $fact->image_scenario }}">
                     <fieldset>
                         <legend class="sr-only">Antwoordopties</legend>
                         <div class="text-text-dark text-lg">

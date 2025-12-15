@@ -42,6 +42,7 @@ class QuestionController
 
         // Store answer ID in session
         Session::put('answer_id', $answerId);
+        Session::put('image_scenario', $request->input('image_scenario'));
 
         return redirect()->route('antwoord');
     }

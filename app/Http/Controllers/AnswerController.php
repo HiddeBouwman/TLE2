@@ -11,6 +11,7 @@ class AnswerController extends Controller
     public function show()
     {
         $answerId = Session::get('answer_id');
+        $imageScenario = Session::get('image_scenario');
         if (!$answerId) {
             return redirect()->route('feitje');
         }
@@ -18,9 +19,9 @@ class AnswerController extends Controller
         $answer = Answer::with('explanation')->findOrFail($answerId);
 
         if ($answer->correct_option == 1) {
-            return view('correctAnswer.index', compact('answer'));
+            return view('correctAnswer.index', compact('answer', 'imageScenario'));
         } else {
-            return view('wrongAnswer.index', compact('answer'));
+            return view('wrongAnswer.index', compact('answer', 'imageScenario'));
         }
     }
 }

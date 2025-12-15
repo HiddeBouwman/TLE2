@@ -8,7 +8,7 @@
             <div class="w-11/12 md:w-full flex flex-col justify-center items-center md:items-start">
                 <div
                     class="w-full md:absolute md:right-0 md:top-0 md:w-1/2 md:h-full overflow-hidden rounded-md shadow-md">
-                    <img src="{{asset($answer->image)}}"
+                    <img src="{{asset($imageScenario)}}"
                          alt="Een afbeelding van een bos met paddenstoelen, symboliserend de natuur die instort in een dystopische toekomst."
                          class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
                 </div>

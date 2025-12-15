@@ -21,28 +21,40 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
                 </h1>
             </div>
         </section>
-        <section id="fact" class="hidden">
-            <div class="flex justify-center">
-                <div
-                    class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md cursor-pointer">
-                    <h2 class="text-center text-3xl font-bold">{{ $fact->name ?? 'Het lijkt er op dat er vandaag geen feitje is...' }}</h2>
-                    <p class="text-center text-2xl">
-                        {{ $fact->description ?? '' }}
-                    </p>
+        @if(isset($fact))
+            <section id="fact" class="hidden">
+                <div class="flex justify-center">
+                    <div
+                        class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md cursor-pointer">
+                        <h2 class="text-center text-3xl font-bold">{{ $fact->name }}</h2>
+                        <p class="text-center text-2xl">
+                            {{ $fact->description }}
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="flex justify-center mt-5 mb-2">
-            <div
-                id="fact-image"
-                class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer">
-                <img
-                    class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
-                    src="{{ isset($fact) && $fact->image ? asset($fact->image) : 'Afbeelding niet beschikbaar' }}"
-                    alt="Foto van het feitje">
-            </div>
-        </section>
+            <section class="flex justify-center mt-5 mb-2">
+                <div
+                    id="fact-image"
+                    class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer">
+                    <img
+                        class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
+                        src="{{ asset($fact->image) }}"
+                        alt="Foto van het feitje">
+                </div>
+            </section>
+        @else
+            <section id="fact">
+                <div class="flex justify-center">
+                    <div
+                        class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md">
+                        <h2 class="text-center text-3xl font-bold">Het lijkt er op dat er vandaag geen feitje is...</h2>
+                        <p class="text-center text-2xl"></p>
+                    </div>
+                </div>
+            </section>
+        @endif
 
         @auth
             <div class="flex flex-col justify-center items-center lg:justify-start w-full">

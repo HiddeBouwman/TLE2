@@ -8,7 +8,7 @@
             <div class="w-11/12 md:w-full flex flex-col justify-center items-center md:items-start">
                 <div
                     class="w-full md:absolute md:right-0 md:top-0 md:w-1/2 md:h-full overflow-hidden rounded-md shadow-md">
-                    <img src="{{asset($answer->image)}}"
+                    <img src="{{asset($imageScenario)}}"
                          alt="Hier moet dynamisch gegenereerde alt tekst in."
                          class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
                 </div>
@@ -17,6 +17,7 @@
                     <p class="w-full md:w-1/2 px-6 text-xl font-bold">{{ $answer->option }}</p>
                     @if($answer->explanation)
                         <p class="w-full md:w-1/2 p-6 pt-0 text-lg">{{ $answer->explanation->description }}</p>
+                        <h2 class="w-full md:w-1/2 p-6 text-2xl">Waarom is dit groen?</h2>
                         <p class="w-full md:w-1/2 p-6 pt-0 text-lg">{{ $answer->explanation->conclusion }}</p>
                     @endif
                 </div>
