@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
-    Route::get('/feitje/{id}', [\App\Http\Controllers\DataController::class,'index'])->name('feitje');
+    Route::get('/feitje', [\App\Http\Controllers\DataController::class,'index'])->name('feitje');
 
     Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 

@@ -21,7 +21,7 @@
                             <div class="flex justify-between items-center">
                                 @foreach(range($startDay, $endDay - 1) as $day)
                                     @php
-                                        $lineColor = $day < $streak ? 'bg-emerald-500' : 'bg-red-600';
+                                        $lineColor = $day < $streak ? 'bg-emerald-500' : 'bg-gray-800';
                                     @endphp
 
                                     <div class="flex-1 mx-1 h-1 transition-all duration-500 {{ $lineColor }} "></div>
@@ -33,7 +33,7 @@
                         <ol class="flex justify-between items-start relative z-10 px-2">
                             @foreach(range($startDay, $endDay) as $day)
                                 @php
-                                    $bg = $day <= $streak ? 'bg-emerald-500' : 'bg-red-700';
+                                    $bg = $day <= $streak ? 'bg-emerald-500' : 'bg-gray-800';
                                 @endphp
                                 <li class="flex flex-col items-center text-center w-12">
                                     <div
