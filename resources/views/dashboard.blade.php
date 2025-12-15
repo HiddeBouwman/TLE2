@@ -5,6 +5,7 @@ $streak = $user->streak_counter ?? 0;
 $id = $streak + 1;
 $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te halen
 ?>
+<a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
 <x-app-layout>
     <x-slot>
 
@@ -13,7 +14,7 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
          voor screenreader de fact automatisch laten zien.
          --}}
 
-        <section class="flex justify-center ">
+        <section class="flex justify-center" id="main-content">
             <div
                 id="info" class=" btn-primary w-5/6 lg:w-1/2 mt-10 transition-colors duration-500 ease-in-out"
                 tabindex="0"
@@ -47,12 +48,14 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
                     <img
                         class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
                         src="{{ asset($fact->image) }}"
-                        alt="Foto van het feitje">
+                        alt="Foto van het feitje van vandaag">
                 </div>
             </section>
         @else
             <section id="fact">
-                <div class="flex justify-center">
+                <div class="flex justify-center"
+                     tabindex="0"
+                     role="button">
                     <div
                         class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md">
                         <h2 class="text-center text-3xl font-bold">Het lijkt er op dat er vandaag geen feitje is...</h2>
@@ -92,19 +95,19 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
             <div id="text"
                  class="flex justify-center text-left w-5/6 lg:w-1/2 bg-gradient-lap mx-4 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
                 <div>
+                    <h3 class="sr-only" tabindex="0">uitleg</h3>
                     <ul class="list-disc list-inside text-white"
-                        tabindex="0"
                         role="list">
-                        <li>
+                        <li tabindex="0" role="listitem">
                             Lees het feit van de dag!
                         </li>
-                        <li>
+                        <li tabindex="0" role="listitem">
                             Doe de opdracht!
                         </li>
-                        <li>
+                        <li tabindex="0" role="listitem">
                             Behaal prijzen door de reeks te behouden!
                         </li>
-                        <li>
+                        <li tabindex="0" role="listitem">
                             Behoud de reeks voor 30 dagen en verdien een boom met jouw naam!
                         </li>
                     </ul>
