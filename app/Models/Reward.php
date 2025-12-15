@@ -12,7 +12,7 @@ class Reward extends Model
 
     public function users(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(User::class)
+        return $this->belongsToMany(User::class, 'reward_user')
             ->withTimestamps();
     }
 }

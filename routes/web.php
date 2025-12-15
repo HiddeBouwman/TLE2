@@ -3,6 +3,7 @@
 use App\Http\Controllers\CorrectAnswerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\RewardController;
 
 Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
+Route::get('search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/', function () {
     return view('dashboard');
