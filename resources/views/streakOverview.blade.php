@@ -74,9 +74,9 @@
                         </div>
                     </div>
 
-                    <div id="main-content" class="bg-gradient-lap text-white rounded-xl p-6 shadow-lg" tabindex="0" role="heading">
+                    <div id="main-content" class="bg-gradient-lap text-white rounded-xl p-6 shadow-lg" tabindex="0">
                         <div class="p-6">
-                            <h3 class="text-lg font-semibold mb-4">Je zit op een reeks van <span class="font-bold">{{ $streak }} dagen</span>
+                            <h3 class="text-lg font-semibold mb-4" aria-level="3">Je zit op een reeks van <span class="font-bold">{{ $streak }} dagen</span>
                                 ,
                                 tijd voor een volgende stap!</h3>
 
@@ -120,22 +120,22 @@
                 <aside class="mt-8 md:mt-0">
                     <div class="relative">
                         <div class="bg-primary text-white font-bold text-2xl text-center py-6 rounded-t-lg shadow-md">
-                            <h2 tabindex="0" role="heading">Beloningen!!!</h2>
+                            <h2 tabindex="0">Beloningen!!!</h2>
                         </div>
 
                         <div
                             class="bg-gradient-lap  text-white rounded-b-lg p-6 shadow-lg -mt-2">
-                            <div class="sr-only" tabindex="0" role="list">Op de volgende dagen krijg je beloningen:</div>
-                            <div class="grid grid-cols-1 gap-3 text-sm mb-4 leading-relaxed" tabindex="0">
-                                <p role="listitem">3 dagen - Token om de streak een dag te missen.</p>
-                                <p role="listitem">7 dagen - Je naam komt op de website van natuurmonumenten.</p>
-                                <p role="listitem">15 dagen - Ontvang een digitaal wandelboekje.</p>
-                                <p role="listitem">18 dagen - Je kan gratis parkeren bij een natuurgebied.</p>
-                                <p role="listitem">25 dagen - Ontvang een beloning van bezoekerscentra.</p>
-                                <p role="listitem">30 dagen - Er wordt een boom in jouw naam geplant door natuurmonumenten.</p>
-                            </div>
+                            <div class="sr-only" tabindex="0">Op de volgende dagen krijg je beloningen:</div>
+                            <ul class="grid grid-cols-1 gap-3 text-sm mb-4 leading-relaxed" tabindex="0">
+                                <li>3 dagen - Token om de streak een dag te missen.</li>
+                                <li>7 dagen - Je naam komt op de website van natuurmonumenten.</li>
+                                <li>15 dagen - Ontvang een digitaal wandelboekje.</li>
+                                <li>18 dagen - Je kan gratis parkeren bij een natuurgebied.</li>
+                                <li>25 dagen - Ontvang een beloning van bezoekerscentra.</li>
+                                <li>30 dagen - Er wordt een boom in jouw naam geplant door natuurmonumenten.</li>
+                            </ul>
 
-                            <ul class="space-y-4 mt-4" tabindex="0" role="list">
+                            <ul class="space-y-4 mt-4" tabindex="0">
                                 @foreach($rewardDays as $day)
                                     @php
                                         $rewardIndex = $loop->index;
@@ -148,7 +148,7 @@
                                             : ($available ? 'bg-gift-orange' : 'bg-gift-red');
                                     @endphp
 
-                                    <li class="flex items-center gap-4" role="listitem">
+                                    <li class="flex items-center gap-4">
                                         <img
                                             src="{{ asset('images/gift.png') }}"
                                             class="h-9 w-auto p-1 rounded-md {{ $color }}"

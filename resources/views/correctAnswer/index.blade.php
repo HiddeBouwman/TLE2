@@ -2,7 +2,7 @@
 <a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
 <x-app-layout>
     <div class="container mx-auto px-4 py-8">
-        <div class="flex justify-center" id="main-content" tabindex="0" role="heading">
+        <div class="flex justify-center" id="main-content" tabindex="0">
             <x-answerResult>Je denkt groen!</x-answerResult>
         </div>
         <div class="relative flex justify-center items-center text-white p-6 px-0 min-h-[24rem] md:min-h-0">
@@ -10,15 +10,15 @@
                 <div
                     class="w-full md:absolute md:right-0 md:top-0 md:w-1/2 md:h-full overflow-hidden rounded-md shadow-md">
                     <img src="{{asset($imageScenario)}}"
-                         alt="Hier moet dynamisch gegenereerde alt tekst in."
+                         alt="Een afbeelding die het positieve resultaat van de juiste keuze laat zien."
                          class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
                 </div>
                 <div class="bg-gradient-lap rounded-b-md md:rounded-md shadow-md w-11/12 md:w-full">
-                    <h2 class="w-full md:w-1/2 p-6 text-3xl" tabindex="0" role="heading">Dit antwoord is juist!</h2>
+                    <h2 class="w-full md:w-1/2 p-6 text-3xl" tabindex="0">Dit antwoord is juist!</h2>
                     <p class="w-full md:w-1/2 px-6 text-xl font-bold">{{ $answer->option }}</p>
                     @if($answer->explanation)
                         <p class="w-full md:w-1/2 p-6 pt-0 text-lg">{{ $answer->explanation->description }}</p>
-                        <h3 class="w-full md:w-1/2 p-6 text-2xl" tabindex="0" role="heading">Waarom is dit groen?</h3>
+                        <h3 class="w-full md:w-1/2 p-6 text-2xl" tabindex="0">Waarom is dit groen?</h3>
                         <p class="w-full md:w-1/2 p-6 pt-0 text-lg">{{ $answer->explanation->conclusion }}</p>
                     @endif
                 </div>

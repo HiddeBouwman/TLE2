@@ -3,14 +3,14 @@
     <div id="main-content" class="w-full flex justify-center py-10">
 
         <div class="max-w-full md:max-w-7xl md:p-10">
-            <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left" tabindex="0" role="heading">Dagelijkse Uitdaging</h1>
+            <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left" tabindex="0">Dagelijkse Uitdaging</h1>
 
 
             <div class="relative flex justify-center items-center text-white p-6 px-0 min-h-[24rem] md:min-h-0">
                 <div class="w-11/12 md:w-full flex flex-col justify-center items-center md:items-start">
                     <div class="bg-gradient-lap rounded-t-md md:rounded-md shadow-md w-11/12 md:w-full">
                         <h2 class="sr-only">Inleiding</h2>
-                        <p class="w-full md:w-1/2 p-6 text-lg" tabindex="0" role="button">
+                        <p class="w-full md:w-1/2 p-6 text-lg" tabindex="0">
                             {{ $fact->scenario }}
                         </p>
                     </div>
@@ -26,7 +26,7 @@
             </div>
 
             <section class="p-2 md:p-6 mx-4 mt-4 bg-white shadow-lg">
-                <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left" tabindex="0" role="heading">
+                <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left" tabindex="0">
                     Nu aan jou de vraag…
                     <p>{{ $task->question }}</p>
                 </h2>
@@ -42,8 +42,8 @@
                         <legend class="sr-only">Antwoordopties</legend>
                         <div class="text-text-dark text-lg">
                             @foreach($task->answers as $answer)
-                                <div class="mb-3" role="list">
-                                    <input type="radio" id="option-{{ $answer->id }}" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer" tabindex="0" role="radio">
+                                <div class="mb-3">
+                                    <input type="radio" id="option-{{ $answer->id }}" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer" tabindex="0">
                                     <label class="cursor-pointer" for="option-{{ $answer->id }}">{{ $answer->option }}</label>
                                 </div>
                             @endforeach
