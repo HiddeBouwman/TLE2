@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\CorrectAnswerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
@@ -9,9 +10,10 @@ use App\Http\Controllers\WrongAnswerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 
-Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
-Route::get('search', [SearchController::class, 'search'])->name('search');
-
+Route::middleware(['auth', AdminMiddleware::class])->group(function () {
+    Route::get('stats', [StatsController::class, 'index'])->name('stats.index');
+    Route::get('search', [SearchController::class, 'search'])->name('search');
+});
 Route::get('/', function () {
     return view('dashboard');
 })->name('feitje');
@@ -21,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profiel', [ProfileController::class, 'update'])->name('profiel.update');
     Route::delete('/profiel', [ProfileController::class, 'destroy'])->name('profiel.destroy');
 
-    Route::get('/feitje', [\App\Http\Controllers\DataController::class,'index'])->name('feitje');
+    Route::get('/feitje', [\App\Http\Controllers\DataController::class, 'index'])->name('feitje');
 
     Route::get('/dagelijkse-vraag', [QuestionController::class, 'show'])->name('dagelijkse-vraag');
 
