@@ -1,59 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
+  <a href="https://team5.hr-cmgt-tle2-laravel.nl/">
+    <img src="public/build/assets/vliegenzwam-PKytRzkN.webp" alt="Logo" width="400" height="300">
+  </a>
+ # Ecoreeks
 
-## About Laravel
+  <p align="center">
+    A web application that informs users about nature and the importance of biodiversity.
+    <br/>
+    <a href="https://team5.hr-cmgt-tle2-laravel.nl/"><strong>Open the application page on your web browser</strong></a>
+    <br/>
+  </p>
+</div>
+<br/>
+<br/>
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About the Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+  </ol>
+</details>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## About the Project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Hier komt een variant van de pitch maar dan in het engels
 
-## Learning Laravel
+### Built With:
+*   [![Laravel][Laravel.com]][Laravel-url]
+*   [![Tailwind][TailwindCSS.com]][Tailwind-url]
+*   [![JavaScript][JavaScript.com]][JavaScript-url]
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Getting Started
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To get a local copy up and running, follow the steps below.
 
-## Laravel Sponsors
+### Prerequisites
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Make sure you have the following software installed before you start:
+*   **PHP:** Version 8.2 or higher.
+*   **Composer:** For managing PHP dependencies. If you don't have Composer yet, follow the [Composer installation instructions](https://getcomposer.org/download/).
+*   **Node.js and npm:** For managing front-end dependencies. Download this from the [official Node.js website](https://nodejs.org/).
+*   **Git:** For version control. Download this from the [official Git website](https://git-scm.com/).
 
-### Premium Partners
+### Installation
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1.  **Clone the repository**
+    Open a terminal and navigate to the directory where you want to store the project. Then clone the repository with the following command:
+    ```sh
+    git clone https://github.com/HiddeBouwman/TLE2.git
+    cd TLE2
+    ```
 
+2.  **Install PHP dependencies**
+    Run the following command to install all necessary PHP packages:
+    ```sh
+    composer install
+    ```
+
+3.  **Install front-end dependencies**
+    Install the necessary JavaScript packages with npm:
+    ```sh
+    npm install
+    ```
+
+4.  **Generate the application key**
+    Every Laravel application needs a unique key to secure sessions and other encrypted data.
+    ```sh
+    php artisan key:generate
+    ```
+
+5.  **Run the database migrations and seeders**
+    This command builds the database structure (tables and columns) and fills the database with initial data needed to use the application.
+    ```sh
+    php artisan migrate --seed
+    ```
+
+## Database logic
+We've provided an ERD of how our database is structured.
+
+<img src="public/images/ERD.png" alt="Logo" width="450" height="300">
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+To start the development server:
+```sh
+php artisan serve
+```
+
+To compile and watch the front-end assets for changes:
+```sh
+npm run dev
+```
+The application is now available at `http://127.0.0.1:8000`.
+
+
+See the [backlog](https://github.com/users/HiddeBouwman/projects/1) for a full list of proposed features (and known issues).
+
+<!-- CONTRIBUTING -->
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Code of Conduct
+If you have a suggestion to improve this project, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks!
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<!-- MARKDOWN LINKS & IMAGES -->
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[TailwindCSS.com]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+[Tailwind-url]: https://tailwindcss.com
+[JavaScript.com]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript

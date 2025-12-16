@@ -1,8 +1,9 @@
 @php use Illuminate\Support\Facades\Vite; @endphp
+<a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
 <x-app-layout>
-    <div class="container mx-auto px-4 py-8">
+    <div id="main-content" class="container mx-auto px-4 py-8">
         <div class="text-center">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Oeps! Deze vraag is niet gevonden</h1>
+            <h1 class="text-4xl font-bold text-gray-800 mb-4" tabindex="0" role="heading">Oeps! Deze vraag is niet gevonden</h1>
             <p class="text-lg text-gray-600 mb-8">De dagelijkse vraag die je zoekt bestaat niet of is niet beschikbaar.</p>
             <div class="flex justify-center">
                 <a class="group w-fit flex justify-center items-center gap-2 mt-4 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out"

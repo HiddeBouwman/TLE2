@@ -44,8 +44,8 @@
                         <div class="text-text-dark text-lg">
                             @foreach($task->answers as $answer)
                                 <div class="mb-3" role="list">
-                                    <input type="radio" id="option-{{ $answer->id }}" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer">
-                                    <label class="cursor-pointer" for="option-{{ $answer->id }}" tabindex="0" role="listitem">{{ $answer->option }}</label>
+                                    <input type="radio" id="option-{{ $answer->id }}" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer" tabindex="0" role="radio">
+                                    <label class="cursor-pointer" for="option-{{ $answer->id }}">{{ $answer->option }}</label>
                                 </div>
                             @endforeach
                         </div>

@@ -69,7 +69,7 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
             <div class="flex flex-col justify-center items-center lg:justify-start w-full">
                 <a id="button" href="{{ route('dagelijkse-vraag') }}"
                    class="hidden group flex justify-center items-center gap-2 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out">
-                    Naar vraag
+                    Naar opdracht
                     <svg
                         class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500"
                         aria-hidden="true">
