@@ -5,6 +5,7 @@ $streak = $user->streak_counter ?? 0;
 $id = $streak + 1;
 $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te halen
 ?>
+<a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
 <x-app-layout>
     <x-slot>
 
@@ -13,10 +14,12 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
          voor screenreader de fact automatisch laten zien.
          --}}
 
-        <section class="flex justify-center ">
+        <section class="flex justify-center" id="main-content">
             <div
-                id="info" class=" bg-primary w-5/6 lg:w-1/2 mt-10 cursor-pointer">
-                <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl font-extrabold">
+                id="info" class=" btn-primary w-5/6 lg:w-1/2 mt-10 transition-colors duration-500 ease-in-out"
+                tabindex="0"
+                role="button">
+                <h1 class="text-center pb-4 pt-4  text-4xl font-extrabold" type="button">
                     {{ __('Klik hier voor het feit van de dag!') }}
                 </h1>
             </div>
@@ -25,7 +28,9 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
             <section id="fact" class="hidden">
                 <div class="flex justify-center">
                     <div
-                        class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md cursor-pointer">
+                        class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md cursor-pointer"
+                        tabindex="0"
+                        role="button">
                         <h2 class="text-center text-3xl font-bold">{{ $fact->name }}</h2>
                         <p class="text-center text-2xl">
                             {{ $fact->description }}
@@ -37,16 +42,20 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
             <section class="flex justify-center mt-5 mb-2">
                 <div
                     id="fact-image"
-                    class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer">
+                    class="md:h-96 w-5/6 lg:w-1/2 overflow-hidden rounded-md shadow-md cursor-pointer"
+                    tabindex="0"
+                    role="button">
                     <img
                         class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
                         src="{{ asset($fact->image) }}"
-                        alt="Foto van het feitje">
+                        alt="Foto van het feitje van vandaag">
                 </div>
             </section>
         @else
             <section id="fact">
-                <div class="flex justify-center">
+                <div class="flex justify-center"
+                     tabindex="0"
+                     role="button">
                     <div
                         class="btn-quaternary md:h-96 mt-5 w-5/6 lg:w-1/2 p-5 flex flex-col text-center justify-center overflow-hidden rounded-md shadow-md">
                         <h2 class="text-center text-3xl font-bold">Het lijkt er op dat er vandaag geen feitje is...</h2>
@@ -60,7 +69,7 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
             <div class="flex flex-col justify-center items-center lg:justify-start w-full">
                 <a id="button" href="{{ route('dagelijkse-vraag') }}"
                    class="hidden group flex justify-center items-center gap-2 px-4 py-2 btn-primary rounded transition-colors duration-500 ease-in-out">
-                    Naar vraag
+                    Naar opdracht
                     <svg
                         class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500"
                         aria-hidden="true">
@@ -86,17 +95,19 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
             <div id="text"
                  class="flex justify-center text-left w-5/6 lg:w-1/2 bg-gradient-lap mx-4 text-2xl lg:text-xl shadow-lg p-5 rounded-md">
                 <div>
-                    <ul class="list-disc list-inside text-white ">
-                        <li>
+                    <h3 class="sr-only" tabindex="0">uitleg</h3>
+                    <ul class="list-disc list-inside text-white"
+                        role="list">
+                        <li tabindex="0" role="listitem">
                             Lees het feit van de dag!
                         </li>
-                        <li>
+                        <li tabindex="0" role="listitem">
                             Doe de opdracht!
                         </li>
-                        <li>
+                        <li tabindex="0" role="listitem">
                             Behaal prijzen door de reeks te behouden!
                         </li>
-                        <li>
+                        <li tabindex="0" role="listitem">
                             Behoud de reeks voor 30 dagen en verdien een boom met jouw naam!
                         </li>
                     </ul>

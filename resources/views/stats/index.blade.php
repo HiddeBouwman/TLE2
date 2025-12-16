@@ -1,12 +1,13 @@
+<a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
 <x-app-layout>
-    <header class="bg-primary h-40 pt-8">
-        <h1 class="text-white text-center pb-4 pt-4 text-5xl font-extrabold">Statistieken</h1>
+    <header id="main-content" class="bg-primary h-40 pt-8">
+        <h1 class="text-white text-center pb-4 pt-4 text-5xl font-extrabold" tabindex="0" role="heading">Statistieken</h1>
     </header>
 
     <div class="p-5 max-w-6xl mx-auto">
 
         <div class="mb-6">
-            <form method="GET" action="{{ route('search') }}" class="flex gap-3">
+            <form method="GET" action="{{ route('search') }}" class="flex gap-3" role="search">
                 <input
                     type="text"
                     name="q"
@@ -51,7 +52,7 @@
         @endif
 
 
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden" tabindex="0" role="list">
             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                 <tr>

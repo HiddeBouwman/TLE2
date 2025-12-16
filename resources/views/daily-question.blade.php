@@ -1,15 +1,16 @@
+<a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
 <x-app-layout>
-    <div class="w-full flex justify-center py-10">
+    <div id="main-content" class="w-full flex justify-center py-10">
 
         <div class="max-w-full md:max-w-7xl md:p-10">
-            <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left">Dagelijkse Uitdaging</h1>
-          
+            <h1 class="text-gray-600 text-4xl font-black mb-6 text-center md:text-left" tabindex="0" role="heading">Dagelijkse Uitdaging</h1>
+
 
             <div class="relative flex justify-center items-center text-white p-6 px-0 min-h-[24rem] md:min-h-0">
                 <div class="w-11/12 md:w-full flex flex-col justify-center items-center md:items-start">
                     <div class="bg-gradient-lap rounded-t-md md:rounded-md shadow-md w-11/12 md:w-full">
                         <h2 class="sr-only">Inleiding</h2>
-                        <p class="w-full md:w-1/2 p-6 text-lg">
+                        <p class="w-full md:w-1/2 p-6 text-lg" tabindex="0" role="button">
                             {{ $fact->scenario }}
                         </p>
                     </div>
@@ -18,19 +19,20 @@
                         <img
                             class="w-full h-full block object-cover object-center hover:scale-[1.02] transition-transform duration-1000 ease-in-out"
                             src="{{asset($fact->image_scenario)}}"
-                            alt="Foto van de feitje">
+                            alt="Foto van een dystopisch scenario"
+                            tabindex="0" role="img">
                     </div>
                 </div>
             </div>
 
             <section class="p-2 md:p-6 mx-4 mt-4 bg-white shadow-lg">
-                <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left">
+                <h2 class="w-full inline-block text-3xl font-bold pb-3 text-center md:text-left" tabindex="0" role="heading">
                     Nu aan jou de vraag…
                     <p>{{ $task->question }}</p>
                 </h2>
 
                 <div class="mb-6">
-                    {{--                    <p class="inline-block text-lg py-3">{{ $question['text'] }}</p>--}}
+{{--                    <p class="inline-block text-lg py-3">{{ $question['text'] }}</p>--}}
                 </div>
 
                 <form class="mt-8" action="{{ route('dagelijkse-vraag.submit') }}" method="post">
@@ -40,11 +42,9 @@
                         <legend class="sr-only">Antwoordopties</legend>
                         <div class="text-text-dark text-lg">
                             @foreach($task->answers as $answer)
-                                <div class="mb-3">
-                                    <input type="radio" id="option-{{ $answer->id }}" name="answer"
-                                           value="{{ $answer->id }}" class="mr-2 cursor-pointer">
-                                    <label class="cursor-pointer"
-                                           for="option-{{ $answer->id }}">{{ $answer->option }}</label>
+                                <div class="mb-3" role="list">
+                                    <input type="radio" id="option-{{ $answer->id }}" name="answer" value="{{ $answer->id }}" class="mr-2 cursor-pointer" tabindex="0" role="radio">
+                                    <label class="cursor-pointer" for="option-{{ $answer->id }}">{{ $answer->option }}</label>
                                 </div>
                             @endforeach
                         </div>
@@ -55,8 +55,7 @@
                                 <svg
                                     class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500"
                                     aria-hidden="true">
-                                    <path
-                                        d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
+                                    <path d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
                                 </svg>
                             </button>
                         </div>
@@ -69,8 +68,7 @@
                     <svg
                         class="w-4 h-4 block fill-current group-hover:-translate-x-1 transition-transform ease-in-out duration-500 scale-x-[-1]"
                         aria-hidden="true">
-                        <path
-                            d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
+                        <path d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
                     </svg>
                     Terug
                 </a>
