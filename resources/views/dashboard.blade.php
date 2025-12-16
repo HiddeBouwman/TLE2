@@ -3,16 +3,12 @@
 $user = auth()->user();
 $streak = $user->streak_counter ?? 0;
 $id = $streak + 1;
-$fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te halen
+$fact = \App\Models\Fact::find($id);
 ?>
 <a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
 <x-app-layout>
     <x-slot>
 
-        {{--
-         to do:
-         voor screenreader de fact automatisch laten zien.
-         --}}
 
         <section class="flex justify-center" id="main-content">
             <div
@@ -69,7 +65,8 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
                     <svg
                         class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500"
                         aria-hidden="true">
-                        <path d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
+                        <path
+                            d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
                     </svg>
                 </a>
             </div>
@@ -81,7 +78,8 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
                     <svg
                         class="w-4 h-4 inline fill-current group-hover:translate-x-1 transition-transform ease-in-out duration-500"
                         aria-hidden="true">
-                        <path d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
+                        <path
+                            d="M15.92 7.12a1 1 0 0 0-.22-.33l-4.94-4.95a1 1 0 0 0-1.42 1.42l3.25 3.24H1a1 1 0 0 0 0 2h11.59l-3.25 3.24a1 1 0 1 0 1.41 1.41L15.7 8.2a1 1 0 0 .22-1.09z"/>
                     </svg>
                 </a>
             </div>
@@ -170,7 +168,8 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
                         }
                         $progressPercentage = min($progressFraction * 100, 60);
                     @endphp
-                    <div class="absolute top-0 left-0 h-1 bg-emerald-500" style="width: calc({{ $progressPercentage }}% - {{ $progressPercentage > 0 ? '3rem' : '0px' }}); margin-left: 4rem;"></div>
+                    <div class="absolute top-0 left-0 h-1 bg-emerald-500"
+                         style="width: calc({{ $progressPercentage }}% - {{ $progressPercentage > 0 ? '3rem' : '0px' }}); margin-left: 4rem;"></div>
                 </div>
             </div>
         </section>
