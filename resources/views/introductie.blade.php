@@ -6,12 +6,6 @@ $id = $streak + 1;
 ?>
 <x-app-layout>
     <x-slot>
-
-        {{--
-         to do:
-         voor screenreader de fact automatisch laten zien.
-         --}}
-
         <section id="info" class="flex justify-center ">
             <div class=" bg-primary w-5/6 lg:w-1/2 mt-10 cursor-pointer">
                 <h1 class=" text-white  dark: text-center pb-4 pt-4  text-4xl font-extrabold">
@@ -70,6 +64,7 @@ $id = $streak + 1;
                         <li>
                             Behoud de reeks voor 30 dagen en verdien een boom met jouw naam!
                         </li>
+
                     </ul>
                 </div>
             </div>
