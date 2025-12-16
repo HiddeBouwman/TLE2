@@ -150,9 +150,10 @@ $fact = \App\Models\Fact::find($id); // nodig om de feiten uit de database te ha
                             </div>
                             @if($day <= $streak)
                                 <img src="{{ asset('images/roos.png') }}"
-                                     alt="Icoon van een roos" class="mt-3 h-12 w-auto" width="48" height="48">
+                                     alt="Icoon van een roos" class="mt-3 h-12 w-auto">
                             @else
                                 <img src="{{ asset('images/verwelkteroos.png') }}"
+                                     alt="Icoon van een verwelkte roos" class="mt-3 h-12 w-auto">
                             @endif
                         </li>
                     @endforeach
