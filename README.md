@@ -1,4 +1,3 @@
-
 <div align="center">
   <a href="https://team5.hr-cmgt-tle2-laravel.nl/">
     <img src="public/build/assets/vliegenzwam-PKytRzkN.webp" alt="Logo" width="400" height="300">
@@ -93,7 +92,147 @@ Make sure you have the following software installed before you start:
 ## Database logic
 We've provided an ERD of how our database is structured.
 
-<img src="public/images/ERD.png" alt="Logo" width="450" height="300">
+```mermaid
+erDiagram
+    users {
+        int id PK
+        string name
+        string email UK
+        timestamp email_verified_at
+        string password
+        string remember_token
+        bool role
+        int streak_counter
+        timestamp created_at
+        timestamp updated_at
+    }
+    password_reset_tokens {
+        string email PK
+        string token
+        timestamp created_at
+    }
+    sessions {
+        string id PK
+        int user_id FK
+        string ip_address
+        text user_agent
+        longtext payload
+        int last_activity
+    }
+    tasks {
+        int id PK
+        text question
+        text assignment
+        timestamp created_at
+        timestamp updated_at
+    }
+    answers {
+        int id PK
+        text option
+        bool correct_option
+        string image
+        int task_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+    task_user {
+        int id PK
+        int task_id FK
+        int user_id FK
+        datetime date
+        timestamp created_at
+        timestamp updated_at
+    }
+    facts {
+        int id PK
+        string name
+        text description
+        text scenario
+        string image
+        string image_scenario
+        int task_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+    rewards {
+        int id PK
+        text description
+        timestamp created_at
+        timestamp updated_at
+    }
+    reward_user {
+        int id PK
+        int user_id FK
+        int reward_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+    explanations {
+        int id PK
+        int answer_id FK
+        text description
+        text conclusion
+        timestamp created_at
+        timestamp updated_at
+    }
+    cache {
+        string key PK
+        mediumtext value
+        int expiration
+    }
+    cache_locks {
+        string key PK
+        string owner
+        int expiration
+    }
+    jobs {
+        int id PK
+        string queue
+        longtext payload
+        tinyint attempts
+        int reserved_at
+        int available_at
+        int created_at
+    }
+    job_batches {
+        string id PK
+        string name
+        int total_jobs
+        int pending_jobs
+        int failed_jobs
+        longtext failed_job_ids
+        mediumtext options
+        int cancelled_at
+        int created_at
+        int finished_at
+    }
+    failed_jobs {
+        int id PK
+        string uuid UK
+        text connection
+        text queue
+        longtext payload
+        longtext exception
+        timestamp failed_at
+    }
+    users ||--o{ sessions : "has many"
+    users ||--o{ task_user : "belongs to many"
+    users ||--o{ reward_user : "belongs to many"
+    users ||--|| password_reset_tokens : "has one (via email)"
+    tasks ||--o{ answers : "has many"
+    tasks ||--o{ task_user : "belongs to many"
+    tasks ||--o{ facts : "has many"
+    answers ||--o{ explanations : "has many"
+    rewards ||--o{ reward_user : "belongs to many"
+    task_user }o--|| tasks : ""
+    task_user }o--|| users : ""
+    reward_user }o--|| rewards : ""
+    reward_user }o--|| users : ""
+    explanations }o--|| answers : ""
+    facts }o--|| tasks : ""
+    sessions }o--|| users : ""
+    password_reset_tokens ||--|| users : ""
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
