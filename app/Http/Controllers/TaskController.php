@@ -28,6 +28,10 @@ class TaskController extends Controller
         try {
             $task = Task::with(['answers', 'facts'])->findOrFail($id);
             $fact = $task->facts->first();
+
+            if (!$fact || !$fact->scenario) {
+                return redirect()->route('fallback');
+            }
         } catch (ModelNotFoundException $e) {
             return redirect()->route('fallback');
         }
