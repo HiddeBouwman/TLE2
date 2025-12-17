@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('explanations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('answer_id')->constrained()->onDelete('cascade');
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->text('conclusion')->nullable();
             $table->timestamps();
         });

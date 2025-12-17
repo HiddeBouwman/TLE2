@@ -24,8 +24,8 @@
                         </div>
                         <div
                             class="w-full lg:absolute lg:right-0 lg:top-0 lg:w-1/2 md:h-full lg:h-full overflow-hidden rounded-md shadow-md">
-                            <img src="{{ Vite::asset('resources/img/dystopie.png') }}"
-                                 alt="Een afbeelding van een bos met paddenstoelen, symboliserend de natuur die instort in een dystopische toekomst."
+                            <img  src="{{asset($fact->image_scenario)}}"
+                                 alt="Een afbeelding van een dystopisch scenario"
                                  class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                         <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
                         <button id="snap">Foto maken</button>
                     </div>
-                    <img id="photo" alt="">
+                    <img id="photo" alt="Gemaakte foto">
                     <button class="hidden" id="save">Verder</button>
                 </div>
             </section>
