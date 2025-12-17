@@ -48,7 +48,7 @@
                         <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
                         <button id="snap">Foto maken</button>
                     </div>
-                    <img id="photo" alt="Gemaakte foto">
+                    <img id="photo" alt="">
                     <button class="hidden" id="save">Verder</button>
                 </div>
             </section>
