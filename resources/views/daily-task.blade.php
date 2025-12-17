@@ -24,7 +24,7 @@
                         </div>
                         <div
                             class="w-full mt-4 lg:mt-0 lg:absolute lg:right-0 lg:top-0 lg:w-1/2 lg:h-full overflow-hidden rounded-md shadow-md">
-                            <img src="{{ Vite::asset('resources/img/dystopie.png') }}"
+                            <img src="{{asset($fact->image_scenario)}}"
                                  alt="Foto van een dystopisch scenario"
                                  class="w-full h-64 lg:h-full object-cover hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
                         </div>
