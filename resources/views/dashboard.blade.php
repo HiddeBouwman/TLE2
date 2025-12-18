@@ -5,8 +5,10 @@ $streak = $user->streak_counter ?? 0;
 $id = $streak + 1;
 $fact = \App\Models\Fact::find($id);
 ?>
+
+
 <a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
-<x-app-layout>
+<x-app-layout title="Feitje">
     <x-slot>
 
 

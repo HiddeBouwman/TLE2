@@ -1,5 +1,5 @@
 <a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
-<x-app-layout>
+<x-app-layout title="Streak Overzicht">
     <x-slot>
         @php
             $user = auth()->user();

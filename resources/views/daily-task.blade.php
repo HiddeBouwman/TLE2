@@ -1,6 +1,6 @@
 @vite('resources/js/task.js')
 
-<x-app-layout>
+<x-app-layout title="Dagelijkse Taak">
     <script>
         window.savePhotoUrl = "{{ route('save-photo') }}";
         window.taskId = @json($task->id);

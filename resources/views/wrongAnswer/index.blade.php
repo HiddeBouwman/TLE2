@@ -1,6 +1,6 @@
 @php use Illuminate\Support\Facades\Vite; @endphp
 <a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
-<x-app-layout>
+<x-app-layout title="Onjuist Antwoord">
     <div class="container mx-auto px-4 pt-8">
         <div class="flex justify-center" id="main-content" tabindex="0">
             <x-answerResult>Niet helemaal...</x-answerResult>
