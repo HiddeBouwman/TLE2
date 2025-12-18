@@ -1,18 +1,8 @@
-<div align="center">
-  <a href="https://team5.hr-cmgt-tle2-laravel.nl/">
-    <img src="public/build/assets/vliegenzwam-PKytRzkN.webp" alt="Logo" width="400" height="300">
-  </a>
- # Ecoreeks
+# Ecoreeks
+A web application that informs users about nature and the importance of biodiversity.
 
-  <p align="center">
-    A web application that informs users about nature and the importance of biodiversity.
-    <br/>
-    <a href="https://team5.hr-cmgt-tle2-laravel.nl/"><strong>Open the application page on your web browser</strong></a>
-    <br/>
-  </p>
-</div>
-<br/>
-<br/>
+<a href="https://team5.hr-cmgt-tle2-laravel.nl/"><strong>Open the application page on your web browser</strong></a>
+
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -36,8 +26,11 @@
 
 
 ## About the Project
-
-Hier komt een variant van de pitch maar dan in het engels
+Ecoreeks was developed to encourage users to adopt sustainable behavior in an interactive and motivating way. By combining awareness with playful elements, we demonstrate how small, everyday choices can contribute to a greater positive impact on nature and the environment.
+The experience begins each day with a short, accessible fact about a common Dutch animal or plant species. This fact is followed by a dystopian scenario outlining what could happen if nature were not sufficiently protected.
+The user is then actively challenged. This is done through a question with four answer options that encourages green thinking, or by completing a clear sustainable task. For tasks, the user can provide evidence, encouraging not only intention but also actual behavior.
+By answering a question or completing a task daily, the user builds a streak. Maintaining this streak is a playful way to stay engaged. Rewards are received for achieving the set milestones, providing extra motivation and a sense of progress.
+Ecoreeks concludes with a bridge to real impact. Users are given the opportunity to further deepen their engagement by becoming a member or volunteering at Natuurmonumenten. In this way, Ecoreeks connects digital interaction with measurable actions in the real world.
 
 ### Built With:
 *   [![Laravel][Laravel.com]][Laravel-url]
@@ -244,26 +237,24 @@ php artisan serve
 
 To compile and watch the front-end assets for changes:
 ```sh
-npm run dev
+composer run dev
 ```
-The application is now available at `http://127.0.0.1:8000`.
+The application should now be available at `http://127.0.0.1:8000`.
+
+if the `composer run dev` command line gives errors, try the following line:
+```sh
+php -S 127.0.0.1:8000 -t public
+```
 
 
 See the [backlog](https://github.com/users/HiddeBouwman/projects/1) for a full list of proposed features (and known issues).
 
-<!-- CONTRIBUTING -->
+
+## Edge cases
+- When the application runs out of facts or any of the accompanying data, the whole site might shut down, and post a Laravel error log. Different per page.
+
 ## Contributing
-
-Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
 If you have a suggestion to improve this project, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks!
-
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
