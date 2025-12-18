@@ -20,6 +20,7 @@ A web application that informs users about nature and the importance of biodiver
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#edge-cases">Edge cases</a></li>
     <li><a href="#contributing">Contributing</a></li>
   </ol>
 </details>
