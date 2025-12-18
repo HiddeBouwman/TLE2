@@ -256,6 +256,10 @@ php -S 127.0.0.1:8000 -t public
 
 See the [backlog](https://github.com/users/HiddeBouwman/projects/1) for a full list of proposed features (and known issues).
 
+
+## Edge cases
+- When the application runs out of facts or any of the accompanying data, the whole site might shut down, and post a Laravel error log. Different per page.
+
 ## Contributing
 If you have a suggestion to improve this project, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
