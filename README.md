@@ -20,6 +20,8 @@ A web application that informs users about nature and the importance of biodiver
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#deployment">Deployment</a></li>
+    <li><a href="#backlog">Backlog</a></li>
     <li><a href="#edge-cases">Edge cases</a></li>
     <li><a href="#contributing">Contributing</a></li>
   </ol>
@@ -247,6 +249,11 @@ if the `composer run dev` command line gives errors, try the following line:
 php -S 127.0.0.1:8000 -t public
 ```
 
+## Deployment
+In order to deploy the project on a dedicated server, [follow the instructions on the following page](https://github.com/HR-CMGT/PRG05-2025-2026/tree/main/deployment-tle)
+
+
+## Backlog
 
 See the [backlog](https://github.com/users/HiddeBouwman/projects/1) for a full list of proposed features (and known issues).
 
