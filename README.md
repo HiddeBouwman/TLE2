@@ -1,18 +1,8 @@
-<div align="center">
-  <a href="https://team5.hr-cmgt-tle2-laravel.nl/">
-    <img src="public/build/assets/vliegenzwam-PKytRzkN.webp" alt="Logo" width="400" height="300">
-  </a>
- # Ecoreeks
+# Ecoreeks
+A web application that informs users about nature and the importance of biodiversity.
 
-  <p align="center">
-    A web application that informs users about nature and the importance of biodiversity.
-    <br/>
-    <a href="https://team5.hr-cmgt-tle2-laravel.nl/"><strong>Open the application page on your web browser</strong></a>
-    <br/>
-  </p>
-</div>
-<br/>
-<br/>
+<a href="https://team5.hr-cmgt-tle2-laravel.nl/"><strong>Open the application page on your web browser</strong></a>
+
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -30,14 +20,18 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#edge-cases">Edge cases</a></li>
     <li><a href="#contributing">Contributing</a></li>
   </ol>
 </details>
 
 
 ## About the Project
-
-Hier komt een variant van de pitch maar dan in het engels
+Ecoreeks was developed to encourage users to adopt sustainable behavior in an interactive and motivating way. By combining awareness with playful elements, we demonstrate how small, everyday choices can contribute to a greater positive impact on nature and the environment.
+The experience begins each day with a short, accessible fact about a common Dutch animal or plant species. This fact is followed by a dystopian scenario outlining what could happen if nature were not sufficiently protected.
+The user is then actively challenged. This is done through a question with four answer options that encourages green thinking, or by completing a clear sustainable task. For tasks, the user can provide evidence, encouraging not only intention but also actual behavior.
+By answering a question or completing a task daily, the user builds a streak. Maintaining this streak is a playful way to stay engaged. Rewards are received for achieving the set milestones, providing extra motivation and a sense of progress.
+Ecoreeks concludes with a bridge to real impact. Users are given the opportunity to further deepen their engagement by becoming a member or volunteering at Natuurmonumenten. In this way, Ecoreeks connects digital interaction with measurable actions in the real world.
 
 ### Built With:
 *   [![Laravel][Laravel.com]][Laravel-url]
