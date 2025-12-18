@@ -14,6 +14,9 @@
                     <x-nav-link :href="route('feitje')" :active="request()->routeIs('feitje')">
                         {{ __('Feitje') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('reeks-overzicht')" :active="request()->routeIs('reeks-overzicht')">
+                        {{ __('Reeks overzicht') }}
+                    </x-nav-link>
                 </div>
                 @auth
                     @if(auth()->user()->isAdmin())
@@ -90,6 +93,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('feitje')" :active="request()->routeIs('feitje')">
                 {{ __('Feitje') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('reeks-overzicht')" :active="request()->routeIs('reeks-overzicht')">
+                {{ __('Reeks overzicht') }}
             </x-responsive-nav-link>
             @auth
                 @if(auth()->user()->isAdmin())
