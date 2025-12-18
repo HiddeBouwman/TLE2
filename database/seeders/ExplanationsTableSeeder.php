@@ -69,7 +69,7 @@ class ExplanationsTableSeeder extends Seeder
                 'id' => 6,
                 'answer_id' => 9,
                 'description' => 'Bermen en gazons minder maaien laat madeliefjes bloeien en ondersteunt insecten.',
-                'conclusion' => 'Maak een foto van een berm of veld met madeliefjes die ongemaaid staat.',
+                'conclusion' => 'Madeliefjes geven insecten voedsel en zorgen voor een divers landschap. Door ze te laten groeien, help je biodiversiteit te behouden.',
                 'created_at' => '2025-12-17 14:27:53.000',
                 'updated_at' => '2025-12-17 14:27:54.000',
             ),
