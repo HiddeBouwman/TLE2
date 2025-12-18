@@ -244,26 +244,24 @@ php artisan serve
 
 To compile and watch the front-end assets for changes:
 ```sh
-npm run dev
+composer run dev
 ```
-The application is now available at `http://127.0.0.1:8000`.
+The application should now be available at `http://127.0.0.1:8000`.
+
+if the `composer run dev` command line gives errors, try the following line:
+```sh
+php -S 127.0.0.1:8000 -t public
+```
 
 
 See the [backlog](https://github.com/users/HiddeBouwman/projects/1) for a full list of proposed features (and known issues).
 
-<!-- CONTRIBUTING -->
+
+## Edge cases
+- When the application runs out of facts or any of the accompanying data, the whole site might shut down, and post a Laravel error log. Different per page.
+
 ## Contributing
-
-Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
 If you have a suggestion to improve this project, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks!
-
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
