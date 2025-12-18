@@ -1,5 +1,5 @@
 <a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
-<x-app-layout>
+<x-app-layout title="Dagelijkse Uitdaging">
     <div id="main-content" class="w-full flex justify-center py-10">
 
         <div class="max-w-full md:max-w-7xl md:p-10">

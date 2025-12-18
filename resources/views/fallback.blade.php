@@ -1,6 +1,6 @@
 @php use Illuminate\Support\Facades\Vite; @endphp
 <a href="#main-content" class="sr-only">Ga naar hoofdcontent</a>
-<x-app-layout>
+<x-app-layout title="Pagina niet gevonden">
     <div id="main-content" class="container mx-auto px-4 py-8">
         <div class="text-center">
             <h1 class="text-4xl font-bold text-gray-800 mb-4" tabindex="0" role="heading">Oeps! Deze vraag is niet gevonden</h1>
@@ -19,4 +19,3 @@
         </div>
     </div>
 </x-app-layout>
-
