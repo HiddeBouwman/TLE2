@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
 //            'email' => 'test@example.com',
 //        ]);
         $this->call(UsersTableSeeder::class);
-        $this->call(FactsTableSeeder::class);
         $this->call(TasksTableSeeder::class);
+        $this->call(FactsTableSeeder::class);
         $this->call(AnswersTableSeeder::class);
         $this->call(ExplanationsTableSeeder::class);
         $this->call(RewardsTableSeeder::class);
