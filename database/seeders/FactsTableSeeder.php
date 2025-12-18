@@ -145,7 +145,7 @@ class FactsTableSeeder extends Seeder
                 'name' => 'Herderstasje',
                 'description' => 'Zaadjes lijken op kleine tasjes.',
                 'scenario' => 'Als herderstasje verdwijnt, verliezen bermen hun veerkracht en diversiteit. De grond wordt kwetsbaar voor erosie en droogte. Zelfs kleine insecten en dieren hebben geen houvast meer.',
-                'image' => 'images/herdertasje.webp',
+                'image' => 'images/herderstasje.webp',
                 'image_scenario' => 'images/dystopische_scenario_herderstasje.png',
                 'task_id' => 11,
                 'created_at' => '2025-12-17 10:08:02.000',
